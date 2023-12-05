@@ -2,10 +2,7 @@
 // Create a 404 page
 // Create a single category page
 
-import {
-  createRoutesFromElements,
-  Route,
-} from 'react-router';
+import { createRoutesFromElements, Route } from 'react-router';
 import App from './App';
 import BookMarks from './pages/BookMarks';
 import Categories from './pages/Categories';
@@ -13,34 +10,15 @@ import FilmView from './pages/FilmView';
 import HomePage from './pages/HomePage';
 
 const routes = createRoutesFromElements(
-  <Route
-    path='/'
-    element={<App />}>
-    <Route
-      index
-      element={<HomePage />}
-    />
-    <Route
-      path='categories'
-      element={<Categories />}>
-      <Route
-        path=':genre'
-        element={<div>Category</div>}
-      />
+  <Route path='/' element={<App />}>
+    <Route index element={<HomePage />} />
+    <Route path='categories' element={<Categories />}>
+      <Route path=':genre' element={<div>Category</div>} />
     </Route>
-    <Route
-      path=':slug'
-      element={<FilmView />}
-    />
-    <Route
-      path='/bookmarks'
-      element={<BookMarks />}
-    />
-    <Route
-      path='*'
-      element={<div>404</div>}
-    />
-  </Route>,
+    <Route path=':slug' element={<FilmView />} />
+    <Route path='/bookmarks' element={<BookMarks />} />
+    <Route path='*' element={<div>404</div>} />
+  </Route>
 );
 
 export default routes;
