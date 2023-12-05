@@ -1,54 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import {
-  Route,
-  RouterProvider,
-  createBrowserRouter,
-  createRoutesFromElements,
-} from 'react-router-dom';
-import App from './App.tsx';
-import './index.css';
-import BookMarks from './pages/BookMarks.tsx';
-import Categories from './pages/Categories.tsx';
-import FilmView from './pages/FilmView.tsx';
-import HomePage from './pages/HomePage.tsx';
+import {RouterProvider} from 'react-router';
+import {createBrowserRouter} from 'react-router-dom';
+import routes from './routes';
 
-//TODO:
-// Create a 404 page
-// Create a single category page
-
-export const router = createBrowserRouter(
-  createRoutesFromElements(
-    <Route
-      path='/'
-      element={<App />}>
-      <Route
-        index
-        element={<HomePage />}
-      />
-      <Route
-        path='categories'
-        element={<Categories />}>
-        <Route
-          path=':genre'
-          element={<div>Category</div>}
-        />
-      </Route>
-      <Route
-        path=':slug'
-        element={<FilmView />}
-      />
-      <Route
-        path='/bookmarks'
-        element={<BookMarks />}
-      />
-      <Route
-        path='*'
-        element={<div>404</div>}
-      />
-    </Route>,
-  ),
-);
+const router = createBrowserRouter(routes);
 
 ReactDOM.createRoot(
   document.getElementById('root')!,
