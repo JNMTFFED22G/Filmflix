@@ -1,4 +1,4 @@
-export default interface Movie {
+export default interface iMovie {
   title: string;
   slug: string;
   id: number;
