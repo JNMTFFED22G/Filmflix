@@ -4,10 +4,10 @@
 
 import { createRoutesFromElements, Route } from 'react-router';
 import App from './App';
-import BookMarks from './pages/BookMarks';
-import Categories from './pages/Categories';
-import FilmView from './pages/FilmView';
-import HomePage from './pages/HomePage';
+import BookMarks from './pages/BookMarks/BookMarks';
+import Categories from './pages/Categories/Categories';
+import FilmView from './pages/FilmView/FilmView';
+import HomePage from './pages/HomePage/HomePage';
 
 const routes = createRoutesFromElements(
   <Route path='/' element={<App />}>
