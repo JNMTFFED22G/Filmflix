@@ -17,14 +17,13 @@ import HomePage from './pages/HomePage.tsx';
 // Create a 404 page
 // Create a single category page
 
-const router = createBrowserRouter(
+export const router = createBrowserRouter(
   createRoutesFromElements(
     <Route
       path='/'
       element={<App />}>
       <Route
         index
-        path='/'
         element={<HomePage />}
       />
       <Route
