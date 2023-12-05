@@ -1,0 +1,19 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* After you guys have seen the page you can remove the picture,
+/* feel free to remove it or change it. 
+/* I needed to try how the navbar looked with a background image.
+/* I didn't knew if we were going to use this as landing page or not,
+/* so I just put it there for now.
+*/
+
+body {
+    background: url('../src/img/interstellar.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
