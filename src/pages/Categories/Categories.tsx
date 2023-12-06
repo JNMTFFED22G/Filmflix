@@ -60,7 +60,7 @@ export default function Categories() {
               src={categoryIcons[category]}
               alt={`${category} icon`}
             />
-            <h2 className='category-item'>{category}</h2>
+            <p className='category-item'>{category}</p>
           </div>
         ))}
       </div>
