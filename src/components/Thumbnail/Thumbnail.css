@@ -1,0 +1,33 @@
+.outerDiv {
+  display: flex;
+  flex-direction: column;
+  background-color: red;
+  padding: 0 1rem;
+  max-width: 500px;
+}
+
+.image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.titleContainer {
+  font-family: 'Anonymous Pro', monospace;
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  gap: 10px;
+  background-color: yellow;
+  max-width: inherit;
+  width: 100%;
+}
+
+.movieTitle {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.movieYear {
+}
