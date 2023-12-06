@@ -1,0 +1,17 @@
+.categories-wrapper {
+  color: white;
+  padding: 10rem;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 10px;
+}
+
+.category-container {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.category-item {
+}
