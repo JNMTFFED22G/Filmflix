@@ -43,14 +43,20 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  max-width: 80%;
 }
 
 .firstRow {
   display: flex;
+  justify-content: space-between;
 }
 
 .secondRow {
   display: flex;
   flex-direction: row;
   gap: 10px;
+}
+
+.icon {
+  font-size: 20px;
 }

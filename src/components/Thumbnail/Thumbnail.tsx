@@ -1,5 +1,8 @@
-import { faHeart } from '@fortawesome/free-regular-svg-icons';
+import { faHeart as emptyHeart } from '@fortawesome/free-regular-svg-icons';
+import { faHeart as filledHeart } from '@fortawesome/free-solid-svg-icons';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useState } from 'react';
 import placeholder from '../../img/placeholder.jpg';
 import iMovie from '../../types/iMovie';
 import './Thumbnail.css';
@@ -18,11 +21,18 @@ const TrendingTitle: React.FC<ThumbnailProps> = ({ movie }) => {
 };
 
 const RecommendedTitle: React.FC<ThumbnailProps> = ({ movie }) => {
+  const [hover, setHover] = useState(false);
+
   return (
     <div className='recTitleContainer'>
       <div className='firstRow'>
         <div className='recMovieTitle'>{movie.title}</div>
-        <FontAwesomeIcon icon={faHeart} />
+        <FontAwesomeIcon
+          className='icon'
+          icon={hover ? filledHeart : emptyHeart}
+          onMouseEnter={() => setHover(true)}
+          onMouseLeave={() => setHover(false)}
+        />
       </div>
       <div className='secondRow'>
         <div className='recMovieYear'>{movie.year}</div>
