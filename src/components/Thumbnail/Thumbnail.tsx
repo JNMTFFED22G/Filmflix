@@ -1,3 +1,4 @@
+import placeholder from '../../img/placeholder.jpg';
 import iMovie from '../../types/iMovie';
 import './Thumbnail.css';
 
@@ -10,12 +11,12 @@ const Thumbnail: React.FC<ThumbnailProps> = ({ movie }) => {
     <>
       <div className='outerDiv'>
         <div className='titleContainer'>
-          <div className='movieTitle'>{movie.title}</div>
+          <div className='movieTitle'>{movie.title} -</div>
           <div className='movieYear'>{movie.year}</div>
         </div>
         <img
           className='image'
-          src={movie.thumbnail}
+          src={movie.thumbnail ? movie.thumbnail : placeholder}
           alt={`${movie.title} image`}
         />
       </div>
