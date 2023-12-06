@@ -4,6 +4,7 @@ import actionIcon from '../../assets/icons/action.png';
 import adventureIcon from '../../assets/icons/adventure.png';
 import biographyIcon from '../../assets/icons/biography.png';
 import crimeIcon from '../../assets/icons/crime.png';
+import dramaIcon from '../../assets/icons/drama.png';
 import fantasyIcon from '../../assets/icons/fantasy.png';
 import historyIcon from '../../assets/icons/history.png';
 import horrorIcon from '../../assets/icons/horror.png';
@@ -23,7 +24,7 @@ export default function Categories() {
   const [categories, setCategories] = useState<string[]>([]);
 
   const categoryIcons: Record<string, string> = {
-    Drama: actionIcon,
+    Drama: dramaIcon,
     Thriller: thrillerIcon,
     Mystery: mysteryIcon,
     Music: musicIcon,
@@ -34,7 +35,7 @@ export default function Categories() {
     Adventure: adventureIcon,
     Western: westernIcon,
     Romance: romanceIcon,
-    SciFi: scifiIcon,
+    'Sci-Fi': scifiIcon,
     Fantasy: fantasyIcon,
     War: warIcon,
     Horror: horrorIcon,
