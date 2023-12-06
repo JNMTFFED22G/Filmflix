@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import placeholder from '../../img/placeholder.jpg';
 import iMovie from '../../types/iMovie';
-import './Thumbnail.css';
+import classes from './Thumbnail.module.css';
 
 //TODO
 // onClick on the heart icon, didnt add one since I figured its better left for the person setting up the fav-functionality
@@ -20,8 +20,8 @@ interface ThumbnailProps {
 
 const TrendingTitle: React.FC<{ movie: iMovie }> = ({ movie }) => {
   return (
-    <div className='titleContainer'>
-      <Link className='movieTitle' to={movie.slug}>
+    <div className={classes.titleContainer}>
+      <Link className={classes.movieTitle} to={movie.slug}>
         {movie.title} -
       </Link>
       <div>{movie.year}</div>
@@ -33,19 +33,19 @@ const RecommendedTitle: React.FC<{ movie: iMovie }> = ({ movie }) => {
   const [hover, setHover] = useState(false);
 
   return (
-    <div className='recTitleContainer'>
-      <div className='firstRow'>
-        <Link className='movieTitle' to={movie.slug}>
+    <div className={classes.recTitleContainer}>
+      <div className={classes.firstRow}>
+        <Link className={classes.movieTitle} to={movie.slug}>
           {movie.title}
         </Link>
         <FontAwesomeIcon
-          className='icon'
+          className={classes.icon}
           icon={hover ? filledHeart : emptyHeart}
           onMouseEnter={() => setHover(true)}
           onMouseLeave={() => setHover(false)}
         />
       </div>
-      <div className='secondRow'>
+      <div className={classes.secondRow}>
         <div>{movie.year}</div>
         <div>{movie.rating} rating</div>
       </div>
@@ -62,7 +62,7 @@ const Thumbnail: React.FC<ThumbnailProps> = ({ movie, mode }) => {
 
   return (
     <>
-      <div className='outerDiv'>
+      <div className={classes.outerDiv}>
         {mode === 'rec' ? (
           <RecommendedTitle movie={movie} />
         ) : (
@@ -70,7 +70,7 @@ const Thumbnail: React.FC<ThumbnailProps> = ({ movie, mode }) => {
         )}
         <Link to={movie.slug}>
           <img
-            className='image'
+            className={classes.image}
             src={movie.thumbnail ? imgSrc : placeholder}
             onError={handleError}
             alt={`${movie.title} image`}
