@@ -65,7 +65,7 @@ const Thumbnail: React.FC<ThumbnailProps> = ({ movie, mode }) => {
         <a href={movie.slug}>
           <img
             className='image'
-            src={imgSrc}
+            src={movie.thumbnail ? imgSrc : placeholder}
             onError={handleError}
             alt={`${movie.title} image`}
           />
