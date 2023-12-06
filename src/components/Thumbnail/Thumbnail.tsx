@@ -9,24 +9,29 @@ import './Thumbnail.css';
 
 interface ThumbnailProps {
   movie: iMovie;
+  mode: 'rec' | 'trend';
 }
 
-const TrendingTitle: React.FC<ThumbnailProps> = ({ movie }) => {
+const TrendingTitle: React.FC<{ movie: iMovie }> = ({ movie }) => {
   return (
     <div className='titleContainer'>
-      <div className='movieTitle'>{movie.title} -</div>
-      <div className='movieYear'>{movie.year}</div>
+      <a className='movieTitle' href={movie.slug}>
+        {movie.title} -
+      </a>
+      <div>{movie.year}</div>
     </div>
   );
 };
 
-const RecommendedTitle: React.FC<ThumbnailProps> = ({ movie }) => {
+const RecommendedTitle: React.FC<{ movie: iMovie }> = ({ movie }) => {
   const [hover, setHover] = useState(false);
 
   return (
     <div className='recTitleContainer'>
       <div className='firstRow'>
-        <div className='recMovieTitle'>{movie.title}</div>
+        <a className='movieTitle' href={movie.slug}>
+          {movie.title}
+        </a>
         <FontAwesomeIcon
           className='icon'
           icon={hover ? filledHeart : emptyHeart}
@@ -35,24 +40,36 @@ const RecommendedTitle: React.FC<ThumbnailProps> = ({ movie }) => {
         />
       </div>
       <div className='secondRow'>
-        <div className='recMovieYear'>{movie.year}</div>
+        <div>{movie.year}</div>
         <div>{movie.rating} rating</div>
       </div>
     </div>
   );
 };
 
-const Thumbnail: React.FC<ThumbnailProps> = ({ movie }) => {
+const Thumbnail: React.FC<ThumbnailProps> = ({ movie, mode }) => {
+  const [imgSrc, setImgSrc] = useState(movie.thumbnail);
+
+  const handleError = () => {
+    setImgSrc(placeholder);
+  };
+
   return (
     <>
       <div className='outerDiv'>
-        <RecommendedTitle movie={movie} />
-
-        <img
-          className='image'
-          src={movie.thumbnail ? movie.thumbnail : placeholder}
-          alt={`${movie.title} image`}
-        />
+        {mode === 'rec' ? (
+          <RecommendedTitle movie={movie} />
+        ) : (
+          <TrendingTitle movie={movie} />
+        )}
+        <a href={movie.slug}>
+          <img
+            className='image'
+            src={imgSrc}
+            onError={handleError}
+            alt={`${movie.title} image`}
+          />
+        </a>
       </div>
     </>
   );

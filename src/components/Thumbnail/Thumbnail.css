@@ -1,3 +1,5 @@
+/* -------------- GENERAL -------------- */
+
 .outerDiv {
   display: flex;
   flex-direction: column;
@@ -13,23 +15,27 @@
   height: auto;
 }
 
+.movieTitle {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 80%;
+  color: white;
+  text-decoration: none;
+}
+
+/* -------------- TRENDING -------------- */
+
 .titleContainer {
   display: flex;
   align-items: center;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
   gap: 10px;
   max-width: inherit;
   width: 100%;
 }
 
-.movieTitle {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.movieYear {
-}
+/* -------------- RECOMMENDED -------------- */
 
 .recTitleContainer {
   display: flex;
@@ -37,13 +43,6 @@
   margin-bottom: 6px;
   max-width: inherit;
   width: 100%;
-}
-
-.recMovieTitle {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  max-width: 80%;
 }
 
 .firstRow {
@@ -59,4 +58,8 @@
 
 .icon {
   font-size: 20px;
+
+  &:hover {
+    cursor: pointer;
+  }
 }

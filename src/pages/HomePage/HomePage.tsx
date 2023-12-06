@@ -1,4 +1,5 @@
 import Thumbnail from '../../components/Thumbnail/Thumbnail';
+import movies from '../../data/movies.json';
 import iMovie from '../../types/iMovie';
 
 const movie: iMovie = {
@@ -31,9 +32,12 @@ export default function HomePage() {
   return (
     <div>
       <h1>HomePage</h1>
+      {movies.map((movie, index) => (
+        <Thumbnail movie={movie} mode='trend' key={index} />
+      ))}
 
-      <Thumbnail movie={movie} />
-      <Thumbnail movie={movie2} />
+      <Thumbnail movie={movie2} mode='trend' />
+      <Thumbnail movie={movie} mode='rec' />
     </div>
   );
 }
