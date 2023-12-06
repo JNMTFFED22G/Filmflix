@@ -3,6 +3,7 @@ import { faHeart as filledHeart } from '@fortawesome/free-solid-svg-icons';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import placeholder from '../../img/placeholder.jpg';
 import iMovie from '../../types/iMovie';
 import './Thumbnail.css';
@@ -15,9 +16,9 @@ interface ThumbnailProps {
 const TrendingTitle: React.FC<{ movie: iMovie }> = ({ movie }) => {
   return (
     <div className='titleContainer'>
-      <a className='movieTitle' href={movie.slug}>
+      <Link className='movieTitle' to={movie.slug}>
         {movie.title} -
-      </a>
+      </Link>
       <div>{movie.year}</div>
     </div>
   );
@@ -29,9 +30,9 @@ const RecommendedTitle: React.FC<{ movie: iMovie }> = ({ movie }) => {
   return (
     <div className='recTitleContainer'>
       <div className='firstRow'>
-        <a className='movieTitle' href={movie.slug}>
+        <Link className='movieTitle' to={movie.slug}>
           {movie.title}
-        </a>
+        </Link>
         <FontAwesomeIcon
           className='icon'
           icon={hover ? filledHeart : emptyHeart}
@@ -62,14 +63,14 @@ const Thumbnail: React.FC<ThumbnailProps> = ({ movie, mode }) => {
         ) : (
           <TrendingTitle movie={movie} />
         )}
-        <a href={movie.slug}>
+        <Link to={movie.slug}>
           <img
             className='image'
             src={movie.thumbnail ? imgSrc : placeholder}
             onError={handleError}
             alt={`${movie.title} image`}
           />
-        </a>
+        </Link>
       </div>
     </>
   );
