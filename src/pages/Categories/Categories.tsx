@@ -7,8 +7,11 @@ import crimeIcon from '../../assets/icons/crime.png';
 import fantasyIcon from '../../assets/icons/fantasy.png';
 import historyIcon from '../../assets/icons/history.png';
 import horrorIcon from '../../assets/icons/horror.png';
+import musicIcon from '../../assets/icons/music.png';
+import mysteryIcon from '../../assets/icons/mystery.png';
 import romanceIcon from '../../assets/icons/romance.png';
 import scifiIcon from '../../assets/icons/scifi.png';
+import thrillerIcon from '../../assets/icons/thriller.png';
 import warIcon from '../../assets/icons/war.png';
 import westernIcon from '../../assets/icons/western.png';
 import movies from '../../data/movies.json';
@@ -21,6 +24,9 @@ export default function Categories() {
 
   const categoryIcons: Record<string, string> = {
     Drama: actionIcon,
+    Thriller: thrillerIcon,
+    Mystery: mysteryIcon,
+    Music: musicIcon,
     Crime: crimeIcon,
     Action: actionIcon,
     Biography: biographyIcon,
