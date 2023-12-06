@@ -7,5 +7,5 @@ export default interface iMovie {
   actors: string[];
   genre: string;
   synopsis: string;
-  thumbnail: string;
+  thumbnail?: string;
 }
