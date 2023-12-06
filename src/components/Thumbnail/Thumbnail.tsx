@@ -1,12 +1,17 @@
 import { faHeart as emptyHeart } from '@fortawesome/free-regular-svg-icons';
 import { faHeart as filledHeart } from '@fortawesome/free-solid-svg-icons';
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import placeholder from '../../img/placeholder.jpg';
 import iMovie from '../../types/iMovie';
 import './Thumbnail.css';
+
+//TODO
+// onClick on the heart icon, didnt add one since I figured its better left for the person setting up the fav-functionality
+// Might have to restyle things slightly, depending on how the carousel is implemented
+// Maybe add some hover effects?
+// More tests need to be written once implemented in the app
 
 interface ThumbnailProps {
   movie: iMovie;
