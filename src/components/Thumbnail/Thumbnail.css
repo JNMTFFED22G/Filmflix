@@ -3,6 +3,9 @@
   flex-direction: column;
   padding: 0 1rem;
   max-width: 380px;
+  font-family: 'Anonymous Pro', monospace;
+  color: white;
+  font-size: 16px;
 }
 
 .image {
@@ -11,15 +14,12 @@
 }
 
 .titleContainer {
-  font-family: 'Anonymous Pro', monospace;
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 6px;
   gap: 10px;
   max-width: inherit;
   width: 100%;
-  color: white;
-  font-size: 16px;
 }
 
 .movieTitle {
@@ -29,4 +29,28 @@
 }
 
 .movieYear {
+}
+
+.recTitleContainer {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 6px;
+  max-width: inherit;
+  width: 100%;
+}
+
+.recMovieTitle {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.firstRow {
+  display: flex;
+}
+
+.secondRow {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
 }
