@@ -24,6 +24,7 @@ export default function Categories() {
   const [categories, setCategories] = useState<string[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string>('');
 
+  /* Genre icons */
   const categoryIcons: Record<string, string> = {
     Drama: dramaIcon,
     Thriller: thrillerIcon,
@@ -42,10 +43,12 @@ export default function Categories() {
     Horror: horrorIcon,
   };
 
+  /* Handle category click */
   const handleCategoryClick = (category: string) => {
     setSelectedCategory(category);
   };
 
+  /* Retrieve the unique categories */
   useEffect(() => {
     const uniqueCategories = [
       ...new Set(
@@ -61,6 +64,7 @@ export default function Categories() {
         {categories.map(category => (
           <div
             className='category-container'
+            aria-label='category-container'
             key={category}
             onClick={() => handleCategoryClick(category)}
           >
