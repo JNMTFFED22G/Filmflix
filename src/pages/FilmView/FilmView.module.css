@@ -1,0 +1,61 @@
+.section {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+}
+
+.vertPos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4rem;
+}
+
+.block {
+  display: flex;
+  flex-direction: column;
+  width: calc(50% - 2rem);
+}
+
+.imageContainer {
+  align-items: end;
+  justify-content: center;
+}
+
+.textContainer {
+  justify-content: space-between;
+}
+
+.textBlock {
+  display: flex;
+  flex-direction: column;
+}
+
+.year {
+  font-size: 20px;
+}
+
+.ratingGenre {
+  margin-bottom: 1rem;
+}
+
+.synopsis {
+  width: 80%;
+}
+
+.gapLeft {
+  margin-left: 1rem;
+}
+
+@media (max-width: 810px) {
+  .block {
+    width: 100%;
+  }
+
+  .imageContainer {
+    align-items: center;
+  }
+
+  .synopsis {
+    width: 100%;
+  }
+}
