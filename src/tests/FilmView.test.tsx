@@ -26,8 +26,6 @@ describe('FimView', () => {
   });
 
   it('displays all information about the movie', async () => {
-    screen.debug();
-
     expect(await screen.findByText(movie.title)).toBeInTheDocument();
     expect(await screen.findByText(movie.year)).toBeInTheDocument();
     expect(
