@@ -19,7 +19,7 @@ export default function FilmView() {
     <div className={`section ${styles.section}`}>
       <div className={styles.vertPos}>
         <div className={`${styles.block} ${styles.imageContainer}`}>
-          <img src={thumbnail} />
+          <img src={thumbnail} alt={'Movie cover image'} />
         </div>
         <div className={`${styles.block} ${styles.textContainer}`}>
           <div className={styles.textBlock}>
