@@ -6,6 +6,18 @@
   font-size: 20px;
 }
 
+.goBackButton {
+  color: white;
+  border: none;
+  background: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.arrow-icon {
+  margin-right: 1rem;
+}
+
 .categories-wrapper {
   display: grid;
   grid-template-columns: repeat(5, 1fr);

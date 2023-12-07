@@ -1,8 +1,10 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useEffect, useState } from 'react';
 import './Categories.css';
 import '/src/App.css';
 
 /* Genre icons */
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import actionIcon from '../../assets/icons/action.png';
 import adventureIcon from '../../assets/icons/adventure.png';
 import biographyIcon from '../../assets/icons/biography.png';
@@ -23,6 +25,8 @@ import movies from '../../data/movies.json';
 export default function Categories() {
   const [categories, setCategories] = useState<string[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string>('');
+  const [isCategorySelected, setIsCategorySelected] = useState(false);
+  const [filteredMovies, setFilteredMovies] = useState<any[]>([]);
 
   /* Genre icons */
   const categoryIcons: Record<string, string> = {
@@ -46,6 +50,12 @@ export default function Categories() {
   /* Handle category click */
   const handleCategoryClick = (category: string) => {
     setSelectedCategory(category);
+    console.log(selectedCategory);
+    setIsCategorySelected(true);
+  };
+
+  const goBackButton = () => {
+    setIsCategorySelected(false);
   };
 
   /* Retrieve the unique categories */
@@ -59,24 +69,45 @@ export default function Categories() {
   }, []);
 
   return (
-    <div className='center-container'>
-      <div className='categories-wrapper'>
-        {categories.map(category => (
-          <div
-            className='category-container'
-            aria-label='category-container'
-            key={category}
-            onClick={() => handleCategoryClick(category)}
-          >
-            <img
-              className='category-icon'
-              src={categoryIcons[category]}
-              alt={`${category} icon`}
-            />
-            <p className='category-item'>{category}</p>
-          </div>
-        ))}
+    <div>
+      {isCategorySelected ? (
+        <button onClick={() => goBackButton()} className='goBackButton'>
+          <FontAwesomeIcon className='arrow-icon' icon={faArrowLeft} />
+          Go back
+        </button>
+      ) : (
+        <></>
+      )}
+      <div className='center-container'>
+        <div className='movies-list'>
+          {filteredMovies.map(movie => (
+            <div key={movie.id}>
+              <h3>{movie.title}</h3>
+              {/* Add more details or components for each movie as needed */}
+            </div>
+          ))}
+        </div>
+        <div className='categories-wrapper'>
+          {categories.map(category => (
+            <div
+              className='category-container'
+              aria-label='category-container'
+              key={category}
+              onClick={() => handleCategoryClick(category)}
+            >
+              <img
+                className='category-icon'
+                src={categoryIcons[category]}
+                alt={`${category} icon`}
+              />
+              <p className='category-item'>{category}</p>
+            </div>
+          ))}
+        </div>
       </div>
+      {/* {movies.map((movie, index) => (
+        <Thumbnail movie={movie} mode='rec' key={index} />
+      ))} */}
     </div>
   );
 }
