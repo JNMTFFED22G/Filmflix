@@ -8,7 +8,7 @@ import {
 import movies from '../data/movies.json';
 import routes from '../routes';
 
-describe.only('FimView', () => {
+describe('FimView', () => {
   let navigate: NavigateFunction;
   const movie = movies[0];
 
