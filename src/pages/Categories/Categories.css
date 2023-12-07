@@ -7,7 +7,7 @@
 }
 
 /* SELECTED MOVIE GENRE */
-.goBackButton {
+.go-back-button {
   color: white;
   border: none;
   background: none;
@@ -22,7 +22,7 @@
   padding: 2rem;
 }
 
-.button-title {
+.go-back-button-wrapper {
   padding: 0 1rem;
 }
 
@@ -85,5 +85,26 @@
 
   .category-icon {
     height: 50px;
+  }
+}
+
+@keyframes inAnimation {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@keyframes outAnimation {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
   }
 }

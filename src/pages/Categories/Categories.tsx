@@ -26,8 +26,14 @@ import westernIcon from '../../assets/icons/western.png';
 export default function Categories() {
   const [categories, setCategories] = useState<string[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string>('');
-  const [isCategorySelected, setIsCategorySelected] = useState(false);
+  const [isActive, setIsActive] = useState(false);
   const [filteredMovies, setFilteredMovies] = useState<any[]>([]);
+
+  const mountedStyle = { animation: 'inAnimation 250ms ease-in' };
+  const unmountedStyle = {
+    animation: 'outAnimation 270ms ease-out',
+    animationFillMode: 'forwards',
+  };
 
   /* Genre icons */
   const categoryIcons: Record<string, string> = {
@@ -51,7 +57,8 @@ export default function Categories() {
   /* Handle category click */
   const handleCategoryClick = (category: string) => {
     setSelectedCategory(category);
-    setIsCategorySelected(true);
+
+    activeToggle();
 
     const moviesForCategory = movies.filter(movie =>
       movie.genre.split(', ').includes(category)
@@ -59,8 +66,8 @@ export default function Categories() {
     setFilteredMovies(moviesForCategory);
   };
 
-  const goBackButton = () => {
-    setIsCategorySelected(false);
+  const activeToggle = () => {
+    setIsActive(!isActive);
   };
 
   /* Retrieve the unique categories */
@@ -75,12 +82,15 @@ export default function Categories() {
 
   return (
     <div className='center-container'>
-      {isCategorySelected ? (
+      {isActive ? (
         <>
-          <div className='selected-category-wrapper'>
+          <div style={isActive ? mountedStyle : unmountedStyle}>
             <div className='selected-category-movie-list'>
-              <div className='button-title'>
-                <button onClick={() => goBackButton()} className='goBackButton'>
+              <div className='go-back-button-wrapper'>
+                <button
+                  onClick={() => activeToggle()}
+                  className='go-back-button'
+                >
                   <FontAwesomeIcon className='arrow-icon' icon={faArrowLeft} />
                   Go back
                 </button>
@@ -97,9 +107,10 @@ export default function Categories() {
         </>
       ) : (
         <>
-          <div className='categories-wrapper'>
+          <div className={'categories-wrapper'}>
             {categories.map(category => (
               <div
+                style={isActive ? unmountedStyle : mountedStyle}
                 className={`category-container ${
                   category === selectedCategory ? 'selected' : ''
                 }`}
