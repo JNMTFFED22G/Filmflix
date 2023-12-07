@@ -1,10 +1,12 @@
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useEffect, useState } from 'react';
+import Thumbnail from '../../components/Thumbnail/Thumbnail';
+import movies from '../../data/movies.json';
 import './Categories.css';
 import '/src/App.css';
 
 /* Genre icons */
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import actionIcon from '../../assets/icons/action.png';
 import adventureIcon from '../../assets/icons/adventure.png';
 import biographyIcon from '../../assets/icons/biography.png';
@@ -20,7 +22,6 @@ import scifiIcon from '../../assets/icons/scifi.png';
 import thrillerIcon from '../../assets/icons/thriller.png';
 import warIcon from '../../assets/icons/war.png';
 import westernIcon from '../../assets/icons/western.png';
-import movies from '../../data/movies.json';
 
 export default function Categories() {
   const [categories, setCategories] = useState<string[]>([]);
@@ -50,8 +51,12 @@ export default function Categories() {
   /* Handle category click */
   const handleCategoryClick = (category: string) => {
     setSelectedCategory(category);
-    console.log(selectedCategory);
     setIsCategorySelected(true);
+
+    const moviesForCategory = movies.filter(movie =>
+      movie.genre.split(', ').includes(category)
+    );
+    setFilteredMovies(moviesForCategory);
   };
 
   const goBackButton = () => {
@@ -69,45 +74,50 @@ export default function Categories() {
   }, []);
 
   return (
-    <div>
+    <div className='center-container'>
       {isCategorySelected ? (
-        <button onClick={() => goBackButton()} className='goBackButton'>
-          <FontAwesomeIcon className='arrow-icon' icon={faArrowLeft} />
-          Go back
-        </button>
+        <>
+          <div className='selected-category-wrapper'>
+            <div className='selected-category-movie-list'>
+              <div className='button-title'>
+                <button onClick={() => goBackButton()} className='goBackButton'>
+                  <FontAwesomeIcon className='arrow-icon' icon={faArrowLeft} />
+                  Go back
+                </button>
+                <h1 className='category-title'>{selectedCategory}</h1>
+              </div>
+            </div>
+
+            <div className='selected-category-movie-list'>
+              {filteredMovies.map((movie, index) => (
+                <Thumbnail movie={movie} mode='rec' key={index} />
+              ))}
+            </div>
+          </div>
+        </>
       ) : (
-        <></>
+        <>
+          <div className='categories-wrapper'>
+            {categories.map(category => (
+              <div
+                className={`category-container ${
+                  category === selectedCategory ? 'selected' : ''
+                }`}
+                aria-label='category-container'
+                key={category}
+                onClick={() => handleCategoryClick(category)}
+              >
+                <img
+                  className='category-icon'
+                  src={categoryIcons[category]}
+                  alt={`${category} icon`}
+                />
+                <p className='category-item'>{category}</p>
+              </div>
+            ))}
+          </div>
+        </>
       )}
-      <div className='center-container'>
-        <div className='movies-list'>
-          {filteredMovies.map(movie => (
-            <div key={movie.id}>
-              <h3>{movie.title}</h3>
-              {/* Add more details or components for each movie as needed */}
-            </div>
-          ))}
-        </div>
-        <div className='categories-wrapper'>
-          {categories.map(category => (
-            <div
-              className='category-container'
-              aria-label='category-container'
-              key={category}
-              onClick={() => handleCategoryClick(category)}
-            >
-              <img
-                className='category-icon'
-                src={categoryIcons[category]}
-                alt={`${category} icon`}
-              />
-              <p className='category-item'>{category}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-      {/* {movies.map((movie, index) => (
-        <Thumbnail movie={movie} mode='rec' key={index} />
-      ))} */}
     </div>
   );
 }

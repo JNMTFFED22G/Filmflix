@@ -2,10 +2,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
   font-size: 20px;
+  color: white;
 }
 
+/* SELECTED MOVIE GENRE */
 .goBackButton {
   color: white;
   border: none;
@@ -14,10 +15,22 @@
   cursor: pointer;
 }
 
+.selected-category-movie-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1rem;
+  padding: 2rem;
+}
+
+.button-title {
+  padding: 0 1rem;
+}
+
 .arrow-icon {
   margin-right: 1rem;
 }
 
+/* CATEGORY SELECTION */
 .categories-wrapper {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
