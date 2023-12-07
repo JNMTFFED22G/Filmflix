@@ -7,15 +7,7 @@
 }
 
 /* SELECTED MOVIE GENRE */
-.go-back-button {
-  color: white;
-  border: none;
-  background: none;
-  font-size: 20px;
-  cursor: pointer;
-}
-
-.selected-category-movie-list {
+.grid-3 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 1rem;
@@ -24,6 +16,14 @@
 
 .go-back-button-wrapper {
   padding: 0 1rem;
+}
+
+.go-back-button {
+  color: white;
+  border: none;
+  background: none;
+  font-size: 20px;
+  cursor: pointer;
 }
 
 .arrow-icon {
@@ -39,7 +39,7 @@
   color: white;
 }
 
-.category-container {
+.category-item {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -51,13 +51,10 @@
   transition: all 0.3s ease-in-out;
 }
 
-.category-container:hover {
+.category-item:hover {
   cursor: pointer;
   border-radius: 10px;
   border: 2px solid white;
-}
-.category-item {
-  padding: 0.5rem;
 }
 
 .category-icon {
@@ -65,6 +62,33 @@
   margin-bottom: 1rem;
 }
 
+.category-title {
+  padding: 0.5rem;
+}
+
+/* ANIMATIONS */
+@keyframes inAnimation {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@keyframes outAnimation {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* MEDIA QUERIES */
 /* Tablet */
 @media (max-width: 800px) {
   .categories-wrapper {
@@ -85,26 +109,5 @@
 
   .category-icon {
     height: 50px;
-  }
-}
-
-@keyframes inAnimation {
-  0% {
-    opacity: 0;
-    visibility: hidden;
-  }
-  100% {
-    opacity: 1;
-    visibility: visible;
-  }
-}
-
-@keyframes outAnimation {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-    visibility: hidden;
   }
 }

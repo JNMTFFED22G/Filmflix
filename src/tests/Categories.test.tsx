@@ -15,7 +15,7 @@ test('should display "Drama", "Crime" and "Action"', () => {
 
 /* Check that all categories are being rendered */
 test('should render 15 categories', () => {
-  const categoryContainer = screen.getAllByLabelText('category-container');
+  const categoryContainer = screen.getAllByLabelText('category-item');
   const expectedCategoryCount = 15;
 
   expect(categoryContainer).toHaveLength(expectedCategoryCount);

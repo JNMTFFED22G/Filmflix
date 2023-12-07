@@ -57,7 +57,6 @@ export default function Categories() {
   /* Handle category click */
   const handleCategoryClick = (category: string) => {
     setSelectedCategory(category);
-
     activeToggle();
 
     const moviesForCategory = movies.filter(movie =>
@@ -66,6 +65,7 @@ export default function Categories() {
     setFilteredMovies(moviesForCategory);
   };
 
+  /* Toggle active state */
   const activeToggle = () => {
     setIsActive(!isActive);
   };
@@ -85,7 +85,7 @@ export default function Categories() {
       {isActive ? (
         <>
           <div style={isActive ? mountedStyle : unmountedStyle}>
-            <div className='selected-category-movie-list'>
+            <div className='grid-3'>
               <div className='go-back-button-wrapper'>
                 <button
                   onClick={() => activeToggle()}
@@ -94,11 +94,10 @@ export default function Categories() {
                   <FontAwesomeIcon className='arrow-icon' icon={faArrowLeft} />
                   Go back
                 </button>
-                <h1 className='category-title'>{selectedCategory}</h1>
+                <h1>{selectedCategory}</h1>
               </div>
             </div>
-
-            <div className='selected-category-movie-list'>
+            <div className='grid-3'>
               {filteredMovies.map((movie, index) => (
                 <Thumbnail movie={movie} mode='rec' key={index} />
               ))}
@@ -111,10 +110,10 @@ export default function Categories() {
             {categories.map(category => (
               <div
                 style={isActive ? unmountedStyle : mountedStyle}
-                className={`category-container ${
+                className={`category-item ${
                   category === selectedCategory ? 'selected' : ''
                 }`}
-                aria-label='category-container'
+                aria-label='category-item'
                 key={category}
                 onClick={() => handleCategoryClick(category)}
               >
@@ -123,7 +122,7 @@ export default function Categories() {
                   src={categoryIcons[category]}
                   alt={`${category} icon`}
                 />
-                <p className='category-item'>{category}</p>
+                <p className='category-title'>{category}</p>
               </div>
             ))}
           </div>
