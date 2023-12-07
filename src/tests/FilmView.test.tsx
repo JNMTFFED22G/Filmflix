@@ -6,6 +6,7 @@ import {
   createMemoryRouter,
 } from 'react-router-dom';
 import movies from '../data/movies.json';
+import placeholder from '../img/placeholder.jpg';
 import routes from '../routes';
 
 describe('FimView', () => {
@@ -42,6 +43,6 @@ describe('FimView', () => {
     const image = await screen.findByAltText('Movie cover image');
 
     expect(image).toBeInTheDocument();
-    expect(image).toHaveAttribute('src', movie.thumbnail);
+    expect(image).toHaveAttribute('src', movie.thumbnail || placeholder);
   });
 });

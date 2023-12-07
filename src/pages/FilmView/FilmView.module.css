@@ -21,6 +21,11 @@
   justify-content: center;
 }
 
+.image {
+  width: 100%;
+  max-width: 30rem;
+}
+
 .textContainer {
   justify-content: space-between;
 }
@@ -53,6 +58,10 @@
 
   .imageContainer {
     align-items: center;
+  }
+
+  .image {
+    max-width: 100%;
   }
 
   .synopsis {
