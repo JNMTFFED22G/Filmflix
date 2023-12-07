@@ -1,5 +1,8 @@
 import { useEffect, useState } from 'react';
+import './Categories.css';
+import '/src/App.css';
 
+/* Genre icons */
 import actionIcon from '../../assets/icons/action.png';
 import adventureIcon from '../../assets/icons/adventure.png';
 import biographyIcon from '../../assets/icons/biography.png';
@@ -17,11 +20,9 @@ import warIcon from '../../assets/icons/war.png';
 import westernIcon from '../../assets/icons/western.png';
 import movies from '../../data/movies.json';
 
-import './Categories.css';
-import '/src/App.css';
-
 export default function Categories() {
   const [categories, setCategories] = useState<string[]>([]);
+  const [selectedCategory, setSelectedCategory] = useState<string>('');
 
   const categoryIcons: Record<string, string> = {
     Drama: dramaIcon,
@@ -41,6 +42,10 @@ export default function Categories() {
     Horror: horrorIcon,
   };
 
+  const handleCategoryClick = (category: string) => {
+    setSelectedCategory(category);
+  };
+
   useEffect(() => {
     const uniqueCategories = [
       ...new Set(
@@ -54,7 +59,11 @@ export default function Categories() {
     <div className='center-container'>
       <div className='categories-wrapper'>
         {categories.map(category => (
-          <div className='category-container' key={category}>
+          <div
+            className='category-container'
+            key={category}
+            onClick={() => handleCategoryClick(category)}
+          >
             <img
               className='category-icon'
               src={categoryIcons[category]}
