@@ -52,6 +52,11 @@
 }
 
 @media (max-width: 810px) {
+  .section {
+    height: auto;
+    margin-bottom: 2rem;
+  }
+
   .block {
     width: 100%;
   }
@@ -61,7 +66,7 @@
   }
 
   .image {
-    max-width: 100%;
+    max-width: 500px;
   }
 
   .synopsis {

@@ -31,6 +31,12 @@ body {
   background-color: rgb(34, 34, 34);
 }
 
+@media (max-width: 475px) {
+  h2 {
+    font-size: 40px;
+  }
+}
+
 /* Global classes */
 
 .section {
