@@ -1,0 +1,64 @@
+/* -------------- GENERAL -------------- */
+
+.outerDiv {
+  display: flex;
+  flex-direction: column;
+  padding: 0 1rem;
+  max-width: 380px;
+  color: white;
+  font-size: 16px;
+}
+
+.image {
+  max-width: 100%;
+  height: auto;
+}
+
+.movieTitle {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 80%;
+  color: white;
+  text-decoration: none;
+}
+
+/* -------------- TRENDING -------------- */
+
+.titleContainer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  gap: 10px;
+  max-width: inherit;
+  width: 100%;
+}
+
+/* -------------- RECOMMENDED -------------- */
+
+.recTitleContainer {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 6px;
+  max-width: inherit;
+  width: 100%;
+}
+
+.firstRow {
+  display: flex;
+  justify-content: space-between;
+}
+
+.secondRow {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.icon {
+  font-size: 20px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}

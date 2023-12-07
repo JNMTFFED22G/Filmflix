@@ -1,5 +1,7 @@
 /* Global styles */
 
+@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@400;700&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -26,7 +28,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   height: 100vh; */
-  background-color: black;
+  background-color: rgb(34, 34, 34);
 }
 
 /* Global classes */
