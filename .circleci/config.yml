@@ -16,10 +16,10 @@ jobs:
       - checkout
       - run:
           name: 'Build'
-          command: 'npm run build'
-      - run:
-          name: 'Test'
-          command: 'npm run test'
+          command: |
+            'npm install'
+            'npm run build'
+            'npm run test'
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
