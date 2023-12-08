@@ -14,10 +14,11 @@ jobs:
     # See: https://circleci.com/docs/configuration-reference/#steps
     steps:
       - checkout
+      - node/install-packages:
+          pkg-manager: npm
       - run:
           name: 'Build'
           command: |
-            'npm ci'
             'npm run build'
             'npm run test'
 
