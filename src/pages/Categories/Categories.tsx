@@ -70,6 +70,11 @@ export default function Categories() {
     setFilteredMovies(moviesForCategory);
   };
 
+  const handleMovieClick = (movie: string) => {
+    console.log('movie clicked', movie);
+    navigate(`/${movie}`);
+  };
+
   /* Toggle active state */
   const activeToggle = () => {
     setIsActive(!isActive);
@@ -107,7 +112,11 @@ export default function Categories() {
             </div>
             <div className='category-grid'>
               {filteredMovies.map((movie, index) => (
-                <div aria-label='movie-item'>
+                <div
+                  aria-label='movie-item'
+                  onClick={() => handleMovieClick(movie.slug)}
+                  key={movie.id}
+                >
                   <Thumbnail movie={movie} mode='rec' key={index} />
                 </div>
               ))}
