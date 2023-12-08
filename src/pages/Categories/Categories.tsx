@@ -1,6 +1,7 @@
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Thumbnail from '../../components/Thumbnail/Thumbnail';
 import movies from '../../data/movies.json';
 import './Categories.css';
@@ -24,6 +25,7 @@ import warIcon from '../../assets/icons/war.png';
 import westernIcon from '../../assets/icons/western.png';
 
 export default function Categories() {
+  const navigate = useNavigate();
   const [categories, setCategories] = useState<string[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string>('');
   const [isActive, setIsActive] = useState(false);
@@ -58,6 +60,7 @@ export default function Categories() {
   const handleCategoryClick = (category: string) => {
     setSelectedCategory(category);
     activeToggle();
+    navigate(`/categories/${category}`);
 
     const moviesForCategory = movies.filter(movie =>
       movie.genre.split(', ').includes(category)
@@ -68,6 +71,9 @@ export default function Categories() {
   /* Toggle active state */
   const activeToggle = () => {
     setIsActive(!isActive);
+    if (isActive) {
+      navigate('/categories');
+    }
   };
 
   /* Retrieve the unique categories */

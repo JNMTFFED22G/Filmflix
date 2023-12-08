@@ -90,7 +90,7 @@
 
 /* MEDIA QUERIES */
 /* Tablet */
-@media (max-width: 800px) {
+@media (max-width: 1000px) {
   .categories-wrapper {
     grid-template-columns: repeat(4, 1fr);
     font-size: 18px;
@@ -99,15 +99,23 @@
   .category-icon {
     height: 55px;
   }
+
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 /* Mobile */
-@media (max-width: 600px) {
+@media (max-width: 760px) {
   .categories-wrapper {
     grid-template-columns: repeat(3, 1fr);
   }
 
   .category-icon {
     height: 50px;
+  }
+
+  .grid-3 {
+    grid-template-columns: repeat(1, 1fr);
   }
 }
