@@ -24,13 +24,14 @@ import scifiIcon from '../../assets/icons/scifi.png';
 import thrillerIcon from '../../assets/icons/thriller.png';
 import warIcon from '../../assets/icons/war.png';
 import westernIcon from '../../assets/icons/western.png';
+import iMovie from '../../types/iMovie';
 
 export default function Categories() {
   const navigate = useNavigate();
   const [categories, setCategories] = useState<string[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string>('');
   const [isActive, setIsActive] = useState(false);
-  const [filteredMovies, setFilteredMovies] = useState<any[]>([]);
+  const [filteredMovies, setFilteredMovies] = useState<iMovie[]>([]);
 
   const mountedStyle = { animation: 'inAnimation 250ms ease-in' };
   const unmountedStyle = {
