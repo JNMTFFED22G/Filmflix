@@ -1,9 +1,15 @@
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import { BrowserRouter } from 'react-router-dom';
 import Categories from '../pages/Categories/Categories';
 
 beforeEach(() => {
-  render(<Categories />);
+  render(
+    <BrowserRouter>
+      <Categories />
+    </BrowserRouter>
+  );
 });
 
 /* Check for specific movie genres */
@@ -19,4 +25,16 @@ test('should render 15 categories', () => {
   const expectedCategoryCount = 15;
 
   expect(categoryContainer).toHaveLength(expectedCategoryCount);
+});
+
+/* Check that biography page is being rendered & specific biography movies are rendered  */
+test('when clicking biography icon biography movies are rendered', async () => {
+  const biographyIcon = screen.getByText('Biography');
+
+  await userEvent.click(biographyIcon);
+
+  expect(screen.getByText('Biography')).toBeInTheDocument();
+  expect(screen.queryByText('Drama')).not.toBeInTheDocument();
+  expect(screen.getByText("Schindler's List")).toBeInTheDocument();
+  expect(screen.getByText('Goodfellas')).toBeInTheDocument();
 });

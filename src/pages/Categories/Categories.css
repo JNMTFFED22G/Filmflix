@@ -7,7 +7,7 @@
 }
 
 /* SELECTED MOVIE GENRE */
-.grid-3 {
+.category-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 1rem;
@@ -100,7 +100,7 @@
     height: 55px;
   }
 
-  .grid-3 {
+  .category-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
@@ -115,7 +115,7 @@
     height: 50px;
   }
 
-  .grid-3 {
+  .category-grid {
     grid-template-columns: repeat(1, 1fr);
   }
 }

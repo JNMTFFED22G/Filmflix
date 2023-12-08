@@ -18,6 +18,7 @@ import historyIcon from '../../assets/icons/history.png';
 import horrorIcon from '../../assets/icons/horror.png';
 import musicIcon from '../../assets/icons/music.png';
 import mysteryIcon from '../../assets/icons/mystery.png';
+import fallbackIcon from '../../assets/icons/questionmark.png';
 import romanceIcon from '../../assets/icons/romance.png';
 import scifiIcon from '../../assets/icons/scifi.png';
 import thrillerIcon from '../../assets/icons/thriller.png';
@@ -54,6 +55,7 @@ export default function Categories() {
     Fantasy: fantasyIcon,
     War: warIcon,
     Horror: horrorIcon,
+    FallbackIcon: fallbackIcon,
   };
 
   /* Handle category click */
@@ -91,7 +93,7 @@ export default function Categories() {
       {isActive ? (
         <>
           <div style={isActive ? mountedStyle : unmountedStyle}>
-            <div className='grid-3'>
+            <div className='category-grid'>
               <div className='go-back-button-wrapper'>
                 <button
                   onClick={() => activeToggle()}
@@ -103,9 +105,11 @@ export default function Categories() {
                 <h1>{selectedCategory}</h1>
               </div>
             </div>
-            <div className='grid-3'>
+            <div className='category-grid'>
               {filteredMovies.map((movie, index) => (
-                <Thumbnail movie={movie} mode='rec' key={index} />
+                <div aria-label='movie-item'>
+                  <Thumbnail movie={movie} mode='rec' key={index} />
+                </div>
               ))}
             </div>
           </div>
