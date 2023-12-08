@@ -3,12 +3,13 @@
 version: 2.1
 
 orbs:
-  node: circleci/node@19.9.0
+  node: circleci/node@5.0.2
 
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/configuration-reference/#jobs
 jobs:
   build-and-test:
+    executor: node/default
     # Specify the execution environment. You can specify an image from Docker Hub or use one of our convenience images from CircleCI's Developer Hub.
     # See: https://circleci.com/docs/configuration-reference/#executor-job
     docker:
@@ -21,9 +22,10 @@ jobs:
           pkg-manager: npm
       - run:
           name: 'Build'
-          command: |
-            'npm run build'
-            'npm run test'
+          command: 'npm run build'
+      - run:
+          name: 'Test'
+          command: 'npm run test'
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
