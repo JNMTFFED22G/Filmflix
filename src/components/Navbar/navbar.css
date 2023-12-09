@@ -28,29 +28,16 @@ li {
   font-family: 'Anonymous Pro', monospace;
 }
 
-.open-close-icons {
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-.open-close-icons {
-  color: #000000;
-}
-
 li span svg {
   font-size: 1.3rem;
   margin-right: 5px;
+  cursor: pointer;
 }
 
 /*===== Media Query tablet ---> phone ====*/
 @media (max-width: 810px) {
-  li:not(:first-child):not(:last-child) {
-    display: none;
-  }
-
   li {
-    margin-right: 0.5rem;
+    margin-right: .7rem;
   }
 
   ul {
@@ -60,26 +47,22 @@ li span svg {
     margin-right: 0;
   }
 
-  .hamburger-icon {
-    display: block;
-  }
-
-  .hamburger-span {
-    cursor: pointer;
-    color: white;
-    font-size: 24px;
-  }
-
-  .hamburger-span::before {
-    content: '\2630';
-  }
-
   .navbar {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    padding: 0 1.5rem; 
   }
 
   .open-close-icons {
     color: #ccc;
+  }
+}
+
+@media (max-width: 500px) {
+  li {
+    font-size: .8rem;
+    margin-right: .5rem;
+  }
+
+  li span svg {
+    font-size: .8rem;
   }
 }
