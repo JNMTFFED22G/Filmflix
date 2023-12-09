@@ -10,7 +10,7 @@ interface SearchResultsProps {
 
 export default function SearchResult({ movie, onClose }: SearchResultsProps) {
   return (
-    <div onClick={onClose} className='search-result-item'>
+    <div data-testid="search-result" onClick={onClose} className='search-result-item'>
       <Link to={`/${movie.slug}`}>
         <img
           src={movie.thumbnail}
