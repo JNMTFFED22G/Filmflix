@@ -42,7 +42,7 @@ export default function SearchModal({ onClose, onCloseBtnClick }: SearchModalPro
               onChange={handleInputChange}
             />
           </div>
-          <button className='close-button' onClick={onCloseBtnClick}>
+          <button className='close-button' aria-label='Close modal' onClick={onCloseBtnClick}>
             <FontAwesomeIcon icon={faTimes} />
           </button>
         </div>
