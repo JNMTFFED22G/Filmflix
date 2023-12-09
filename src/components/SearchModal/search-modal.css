@@ -82,8 +82,9 @@
     padding: 1rem;
   }
 
-  .search-modal input::placeholder {
-    font-style: italic;
-    font-size: 0.9rem;
+  @media (max-width: 510px) {
+    .search-modal input::placeholder {
+      font-size: 0;
+    }
   }
 }
