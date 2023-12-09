@@ -1,4 +1,4 @@
-import { faSearch, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -21,13 +21,13 @@ export default function Navbar() {
       </h1>
       <ul>
         <li>
-          <span className='open-close-icons' onClick={toggleSearchModal}>
-            <FontAwesomeIcon icon={isSearchModalOpen ? faTimes : faSearch} />
+        <span onClick={toggleSearchModal}>
+            <FontAwesomeIcon icon={faSearch} />
           </span>
         </li>
         <li>
           <Link
-            style={{ color: '#000000', textDecoration: 'none' }}
+            style={{ color: '#fff', textDecoration: 'none' }}
             to='/categories'
           >
             Categories
@@ -35,16 +35,17 @@ export default function Navbar() {
         </li>
         <li>
           <Link
-            style={{ color: '#000000', textDecoration: 'none' }}
+            style={{ color: '#fff', textDecoration: 'none' }}
             to='/bookmarks'
           >
             Bookmarks
           </Link>
         </li>
-        <span className='hamburger-span'></span>
       </ul>
-
-      {isSearchModalOpen && <SearchModal onClose={toggleSearchModal} />}
+      {isSearchModalOpen && (
+      <SearchModal onClose={toggleSearchModal} 
+      onCloseBtnClick={toggleSearchModal} />
+      )}
     </nav>
   );
 }
