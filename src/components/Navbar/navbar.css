@@ -37,7 +37,7 @@ li span svg {
 /*===== Media Query tablet ---> phone ====*/
 @media (max-width: 810px) {
   li {
-    margin-right: .7rem;
+    margin-right: 0.7rem;
   }
 
   ul {
@@ -59,11 +59,11 @@ li span svg {
 
 @media (max-width: 500px) {
   li {
-    font-size: .8rem;
-    margin-right: .5rem;
+    font-size: 0.8rem;
+    margin-right: 0.5rem;
   }
 
   li span svg {
-    font-size: .8rem;
+    font-size: 0.8rem;
   }
 }

@@ -21,7 +21,7 @@ export default function Navbar() {
       </h1>
       <ul>
         <li>
-        <span onClick={toggleSearchModal}>
+          <span onClick={toggleSearchModal}>
             <FontAwesomeIcon icon={faSearch} />
           </span>
         </li>
@@ -43,8 +43,10 @@ export default function Navbar() {
         </li>
       </ul>
       {isSearchModalOpen && (
-      <SearchModal onClose={toggleSearchModal} 
-      onCloseBtnClick={toggleSearchModal} />
+        <SearchModal
+          onClose={toggleSearchModal}
+          onCloseBtnClick={toggleSearchModal}
+        />
       )}
     </nav>
   );

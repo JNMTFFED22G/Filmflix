@@ -10,7 +10,10 @@ interface SearchModalProps {
   onCloseBtnClick: () => void;
 }
 
-export default function SearchModal({ onClose, onCloseBtnClick }: SearchModalProps) {
+export default function SearchModal({
+  onClose,
+  onCloseBtnClick,
+}: SearchModalProps) {
   const [searchQuery, setSearchQuery] = useState('');
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -30,40 +33,44 @@ export default function SearchModal({ onClose, onCloseBtnClick }: SearchModalPro
 
   return (
     <>
-    <div className='search-modal-overlay' onClick={onClose}>
-      <div className='search-modal' onClick={e => e.stopPropagation()}>
-        <div className='input-btn-wrapper'>
-          <div className='search-container'>
-            <FontAwesomeIcon icon={faSearch} className='search-icon' />
-            <input
-              type='text'
-              placeholder='Search for title, actor, year or genre'
-              value={searchQuery}
-              onChange={handleInputChange}
-            />
+      <div className='search-modal-overlay' onClick={onClose}>
+        <div className='search-modal' onClick={e => e.stopPropagation()}>
+          <div className='input-btn-wrapper'>
+            <div className='search-container'>
+              <FontAwesomeIcon icon={faSearch} className='search-icon' />
+              <input
+                type='text'
+                placeholder='Search for title, actor, year or genre'
+                value={searchQuery}
+                onChange={handleInputChange}
+              />
+            </div>
+            <button
+              className='close-button'
+              aria-label='Close modal'
+              onClick={onCloseBtnClick}
+            >
+              <FontAwesomeIcon icon={faTimes} />
+            </button>
           </div>
-          <button className='close-button' aria-label='Close modal' onClick={onCloseBtnClick}>
-            <FontAwesomeIcon icon={faTimes} />
-          </button>
-        </div>
 
-       <div className='search-result-container'>
-          <div className='search-results'>
-            {filteredMovies.length === 0 ? (
-              <h4>Sorry, we couldn't find any results for your search.</h4>
-            ) : (
-              filteredMovies.map((movie) => (
-                <SearchResult
-                  key={movie.slug}
-                  movie={movie}
-                  onClose={onClose}
-                />
-              ))
-            )}
+          <div className='search-result-container'>
+            <div className='search-results'>
+              {filteredMovies.length === 0 ? (
+                <h4>Sorry, we couldn't find any results for your search.</h4>
+              ) : (
+                filteredMovies.map(movie => (
+                  <SearchResult
+                    key={movie.slug}
+                    movie={movie}
+                    onClose={onClose}
+                  />
+                ))
+              )}
+            </div>
           </div>
         </div>
       </div>
-    </div>
     </>
   );
 }
