@@ -4,7 +4,7 @@ import movies from '../../data/movies.json';
 
 export default function HomePage() {
   return (
-    <div>
+    <div className='nav-padding'>
       <h1>HomePage</h1>
       <MovieCaruosel movie={movies} mode='trend' />
 
