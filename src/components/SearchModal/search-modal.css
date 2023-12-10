@@ -8,7 +8,7 @@
   justify-content: center;
   opacity: 0;
   animation: fadeIn 0.3s ease-in-out forwards;
-  background-color: rgba(0, 0, 0, .9);
+  background-color: rgba(0, 0, 0, 0.9);
 }
 
 .search-modal {
@@ -29,7 +29,6 @@
     opacity: 1;
   }
 }
-
 
 .search-container {
   display: flex;
@@ -74,6 +73,11 @@
   font-size: 1.5rem;
 }
 
+.search-icon {
+  position: absolute;
+  margin-top: 0.7rem;
+  margin-left: 0.4rem;
+}
 
 /*========== Media Queries tablet/mobile ==========*/
 @media (max-width: 810px) {
