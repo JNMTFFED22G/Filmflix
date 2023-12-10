@@ -1,17 +1,26 @@
-.carousel-container {
-  max-width: 1200px;
-  padding: 0;
+.carouselContainer {
+  padding: 0 16px;
+}
 
-  @media (max-width: 800px) {
-    padding: 0;
+.carouselContainer h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+
+
+@media (max-width: 800px) {
+  .carouselContainer {
+    /* padding: 0; */
   }
 }
 
 .mantine-Carousel-container {
-  max-width: 1200px;
   padding: 0;
+}
 
-  @media (max-width: 800px) {
+@media (max-width: 800px) {
+  .mantine-Carousel-container {
     padding: 0;
   }
 }
@@ -23,20 +32,18 @@
 }
 
 .mantine-Carousel-slide {
-  display: inline-flex;
-
-  .overlay {
-    bottom: 0;
-    left: 0;
-  }
 }
+
+.mantine-Carousel-slide .overlay {
+  bottom: 0;
+  left: 0;
+}
+
 .mantine-Carousel-slide img {
-  width: 100%;
-  aspect-ratio: 217.35 / 320;
-  object-fit: cover;
+  width: 10%;
 }
 
 .mantine-Carousel-control {
   box-shadow: none;
-  color: #bc1919;
+  
 }
