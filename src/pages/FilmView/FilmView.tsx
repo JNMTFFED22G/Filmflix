@@ -1,16 +1,12 @@
-import styles from './FilmView.module.css';
-
-import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import moviesJSON from '../../data/movies.json';
 import placeholder from '../../img/placeholder.jpg';
 import iMovie from '../../types/iMovie';
+import styles from './FilmView.module.css';
 
 export default function FilmView() {
   const { slug } = useParams<{ slug: string }>();
-  const [data, setData] = useState<iMovie | undefined>(
-    moviesJSON.find((film: iMovie) => film.slug === slug)
-  );
+  const data = moviesJSON.find((film: iMovie) => film.slug === slug);
 
   return data ? (
     <div className={`section nav-padding ${styles.section}`}>
@@ -19,12 +15,10 @@ export default function FilmView() {
           <img
             src={data.thumbnail}
             alt={'Movie cover image'}
-            onError={() =>
-              setData(prev =>
-                prev ? { ...prev, thumbnail: placeholder } : undefined
-              )
-            }
             className={styles.image}
+            onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+              e.currentTarget.src = placeholder;
+            }}
           />
         </div>
         <div className={`${styles.block} ${styles.textContainer}`}>
