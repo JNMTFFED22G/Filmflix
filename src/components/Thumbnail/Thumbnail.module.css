@@ -3,14 +3,14 @@
 .outerDiv {
   display: flex;
   flex-direction: column;
-  padding: 0 1rem;
-  max-width: 380px;
+  /* padding: 0 1rem; */
+  max-width: 220px;
   color: white;
   font-size: 16px;
 }
 
 .image {
-  max-width: 380px;
+  max-width: 220px;
   height: auto;
 }
 
