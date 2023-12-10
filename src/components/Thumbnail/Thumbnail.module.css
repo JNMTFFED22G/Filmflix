@@ -10,7 +10,7 @@
 }
 
 .image {
-  min-width: 380px;
+  max-width: 380px;
   height: auto;
 }
 

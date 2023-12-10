@@ -24,13 +24,11 @@
 
 .mantine-Carousel-slide {
   display: inline-flex;
-  
 
-  
   .overlay {
-      bottom: 0;
-      left: 0;
-    }
+    bottom: 0;
+    left: 0;
+  }
 }
 .mantine-Carousel-slide img {
   width: 100%;
@@ -40,14 +38,5 @@
 
 .mantine-Carousel-control {
   box-shadow: none;
-  color: #fff;
-}
-
-h2 {
-  font-weight: 500;
-  margin: 0.4rem 0;
-
-  @media (max-width: 800px) {
-    font-size: 1.6rem;
-  }
+  color: #bc1919;
 }
