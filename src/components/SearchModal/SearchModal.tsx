@@ -50,7 +50,7 @@ export default function SearchModal({ onClose, onCloseBtnClick }: SearchModalPro
        <div className='search-result-container'>
           <div className='search-results'>
             {filteredMovies.length === 0 ? (
-              <div className='error-message'>Sorry, no results found.</div>
+              <h4>Sorry, we couldn't find any results for your search.</h4>
             ) : (
               filteredMovies.map((movie) => (
                 <SearchResult

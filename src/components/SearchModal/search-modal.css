@@ -46,7 +46,6 @@
 .search-modal input {
   width: 100%;
   display: flex;
-  /* width: 100%; */
   padding: 12px;
   padding-left: 1.9rem;
   border: none;
@@ -56,6 +55,7 @@
   box-sizing: border-box;
   outline: none;
   border-radius: 4px 4px 2px 2px;
+  font-size: 1rem;
 }
 
 .search-modal input::placeholder {
