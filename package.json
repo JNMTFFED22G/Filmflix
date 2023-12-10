@@ -19,7 +19,7 @@
     "@fortawesome/free-regular-svg-icons": "^6.5.1",
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
-    "@mantine/carousel": "^7.3.0",
+    "@mantine/carousel": "^7.3.1",
     "@mantine/core": "^7.3.0",
     "embla-carousel-react": "^7.1.0",
     "react": "^18.2.0",
