@@ -8,5 +8,4 @@ export default interface iMovie {
   genre: string;
   synopsis: string;
   thumbnail?: string;
-  isTrending?: boolean;
 }
