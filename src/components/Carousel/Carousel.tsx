@@ -1,7 +1,6 @@
 import { Carousel } from '@mantine/carousel';
 import iMovie from '../../types/iMovie';
 import Thumbnail from '../Thumbnail/Thumbnail';
-import { StyledMovieCarousel } from './Carousel.Style';
 import './Carousel.module.css';
 
 interface MovieCarouselProps {
@@ -11,13 +10,13 @@ interface MovieCarouselProps {
 
 function MovieCarousel({ movie, mode }: MovieCarouselProps) {
   return (
-    <StyledMovieCarousel aria-label='Movie carousel'>
+    <div className='carousel-container'>
       <Carousel
         slideSize={{ base: '60%', sm: '30%', md: '20%' }}
         align='start'
         slideGap='lg'
         controlsOffset='sm'
-        slidesToScroll={4}
+        slidesToScroll={2}
         loop
       >
         {movie.map((movie, index) => (
@@ -27,7 +26,7 @@ function MovieCarousel({ movie, mode }: MovieCarouselProps) {
         ))}
         ;
       </Carousel>
-    </StyledMovieCarousel>
+    </div>
   );
 }
 
