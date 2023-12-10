@@ -42,9 +42,8 @@ describe('SearchModal Component', () => {
     await waitFor(() => {
       expect(input).toHaveValue('The Godfatherr');
     });
-
-    const errorMessage = screen.getByText('Sorry, no results found.');
-    expect(errorMessage).toBeInTheDocument();
+    const errorMessage = screen.getByText("Sorry, we couldn't find any results for your search.");
+    expect(errorMessage).toBeInTheDocument();    
   });
 
   it('displays movies when filtering with correct search query', async () => {
