@@ -6,13 +6,6 @@ import styles from './FilmView.module.css';
 
 export default function FilmView() {
   const { slug } = useParams<{ slug: string }>();
-
-  // Vi behöver inte spara datan i ett state. Det räcker att göra det i en variabel då det ställde till
-  // med att navigera till rätt film utifrån modalen. Navigationen fungerade men statet ändrades aldrig.
-
-  // const [data, setData] = useState<iMovie | undefined>(
-  //   moviesJSON.find((film: iMovie) => film.slug === slug)
-  // );
   const data = moviesJSON.find((film: iMovie) => film.slug === slug);
 
   return data ? (
@@ -23,11 +16,6 @@ export default function FilmView() {
             src={data.thumbnail}
             alt={'Movie cover image'}
             className={styles.image}
-            // onError={() =>
-            //   setData(prev =>
-            //     prev ? { ...prev, thumbnail: placeholder } : undefined
-            //   )
-            // }
             onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
               e.currentTarget.src = placeholder;
             }}
