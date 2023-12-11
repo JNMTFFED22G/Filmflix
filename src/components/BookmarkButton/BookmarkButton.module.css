@@ -1,0 +1,16 @@
+.icon {
+  width: fit-content;
+
+  &:hover {
+    cursor: pointer;
+    scale: 110%;
+  }
+}
+
+.small {
+  font-size: 20px;
+}
+
+.large {
+  font-size: 40px;
+}

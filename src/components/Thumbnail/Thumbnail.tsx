@@ -1,11 +1,8 @@
-import { faHeart as emptyHeart } from '@fortawesome/free-regular-svg-icons';
-import { faHeart as filledHeart } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useEffect, useMemo, useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import useBookmarks from '../../hooks/useBookmarks';
 import placeholder from '../../img/placeholder.jpg';
 import iMovie from '../../types/iMovie';
+import BookmarkButton from '../BookmarkButton/BookMarkButton';
 import classes from './Thumbnail.module.css';
 
 //TODO
@@ -31,32 +28,13 @@ const TrendingTitle: React.FC<{ movie: iMovie }> = ({ movie }) => {
 };
 
 const RecommendedTitle: React.FC<{ movie: iMovie }> = ({ movie }) => {
-  const [bookmarks, setBookmarks] = useBookmarks();
-
-  const bookmarked = useMemo(
-    () => bookmarks.includes(movie.id),
-    [bookmarks, movie.id]
-  );
-
-  useEffect(() => {
-    console.log(bookmarks);
-  }, [bookmarks]);
-
   return (
     <div className={classes.recTitleContainer}>
       <div className={classes.firstRow}>
         <Link className={classes.movieTitle} to={movie.slug}>
           {movie.title}
         </Link>
-        <FontAwesomeIcon
-          className={classes.icon}
-          icon={bookmarked ? filledHeart : emptyHeart}
-          onClick={() =>
-            bookmarked
-              ? setBookmarks(bookmarks.filter(id => id !== movie.id))
-              : setBookmarks([...bookmarks, movie.id])
-          }
-        />
+        <BookmarkButton movieId={movie.id} size='small' />
       </div>
       <div className={classes.secondRow}>
         <div>{movie.year}</div>
