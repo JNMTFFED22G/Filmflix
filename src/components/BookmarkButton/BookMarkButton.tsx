@@ -20,14 +20,19 @@ export default function BookmarkButton({ movieId, size }: Props) {
   );
 
   return (
-    <FontAwesomeIcon
-      className={`${styles.icon} ${styles[size]}`}
-      icon={bookmarked ? filledHeart : emptyHeart}
+    <button
+      className={styles.button}
       onClick={() =>
         bookmarked
           ? setBookmarks(bookmarks.filter(id => id !== movieId))
           : setBookmarks([...bookmarks, movieId])
       }
-    />
+      data-testid='bookmark-button'
+    >
+      <FontAwesomeIcon
+        className={`${styles.icon} ${styles[size]}`}
+        icon={bookmarked ? filledHeart : emptyHeart}
+      />
+    </button>
   );
 }
