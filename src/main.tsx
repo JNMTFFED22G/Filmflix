@@ -9,9 +9,19 @@ import routes from './routes';
 
 const router = createBrowserRouter(routes);
 
+const theme = {
+  breakpoints: {
+    xs: '375px',
+    sm: '576px',
+    md: '768px',
+    lg: '992px',
+    xl: '1200px',
+  },
+};
+
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <MantineProvider>
+    <MantineProvider theme={theme}>
       <RouterProvider router={router} />
     </MantineProvider>
   </React.StrictMode>
