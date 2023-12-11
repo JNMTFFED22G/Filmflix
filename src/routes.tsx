@@ -1,6 +1,5 @@
 //TODO:
 // Create a 404 page
-// Create a single category page
 
 import { createRoutesFromElements, Route } from 'react-router';
 import App from './App';
