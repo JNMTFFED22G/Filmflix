@@ -47,7 +47,7 @@ const RecommendedTitle: React.FC<{ movie: iMovie }> = ({ movie }) => {
       </div>
       <div className={classes.secondRow}>
         <div>{movie.year}</div>
-        <div>{movie.rating} rating</div>
+        {movie.rating === 'Not Rated' ? null : <div>{movie.rating} rating</div>}
       </div>
     </div>
   );
