@@ -60,5 +60,6 @@
 
   &:hover {
     cursor: pointer;
+    scale: 110%;
   }
 }
