@@ -19,13 +19,15 @@ interface MovieCarouselProps {
 
 function MovieCarousel({ movie, mode }: MovieCarouselProps) {
   const moviesToDisplay =
-    mode === 'trend' ? movie.filter(movie => movie.isTrending) : movie.filter(movie => !movie.isTrending);
+    mode === 'trend'
+      ? movie.filter(movie => movie.isTrending)
+      : movie.filter(movie => !movie.isTrending);
 
-  console.log(movie);
   return (
     <div className={classes.carouselContainer}>
       <h1>{mode === 'rec' ? 'Recommended Movies' : 'Trending Movies'}</h1>
-      <Carousel classNames={classes}
+      <Carousel
+        classNames={classes}
         slideSize={{ base: '60%', sm: '30%', md: '20%' }}
         align='start'
         slideGap='sm'

@@ -62,3 +62,19 @@
     cursor: pointer;
   }
 }
+
+/* -------------- Mediaqueries -------------- */
+
+@media (max-width: 800px) {
+  .outerDiv {
+    max-width: 150px;
+  }
+
+  .image {
+    max-width: 150px;
+  }
+
+  .movieTitle {
+    max-width: 70%;
+  }
+}
