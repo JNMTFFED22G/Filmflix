@@ -13,25 +13,22 @@ interface MovieCarouselProps {
   mode: 'rec' | 'trend';
 }
 
-// Todo
-// More tests need to be written once implemented in the app
-// Add some styling to the carousel, maybe some hover effects?
-
 function MovieCarousel({ movie, mode }: MovieCarouselProps) {
+  // Filtering movies based on the mode
   const moviesToDisplay =
     mode === 'trend'
       ? movie.filter(movie => movie.isTrending)
       : movie.filter(movie => !movie.isTrending);
 
+  // Rendering the component
   return (
     <div className={classes.carouselContainer}>
       <h1>{mode === 'rec' ? 'Recommended Movies' : 'Trending Movies'}</h1>
       <Carousel
         classNames={classes}
-        slideSize={{ base: '60%', sm: '30%', md: '20%' }}
+        slideSize={{ base: '100%', sm: '15%', md: '20%', lg: '15%', xl: '15%' }}
         align='start'
         slideGap='sm'
-        controlsOffset=''
         slidesToScroll={3}
         loop
         nextControlIcon={
@@ -47,12 +44,12 @@ function MovieCarousel({ movie, mode }: MovieCarouselProps) {
           />
         }
       >
+        {/* Mapping through the movies and creating a Carousel.Slide for each */}
         {moviesToDisplay.map((movie, index) => (
           <Carousel.Slide key={index}>
             <Thumbnail movie={movie} mode={mode} />
           </Carousel.Slide>
         ))}
-        ;
       </Carousel>
     </div>
   );

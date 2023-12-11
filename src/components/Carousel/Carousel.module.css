@@ -1,47 +1,6 @@
 .carouselContainer {
   padding: 0 16px;
-  margin: 3rem;
-
-}
-
-.m-d98df724 .mantine-Carousel-slide {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex: 1;
-  height: 100%;
-
-}
-
-.m-d98df724 .mantine-Carousel-Slide img {
-  width: 10%;
-  height: 10%;
-  object-fit: cover;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-}
-
-@media (max-width: 800px) {
-  .mantine-Carousel-container {
-    padding: 0;
-  }
-}
-
-/* .mantine-Carousel-viewport {
-  margin: 0;
-  padding: 0;
-} */
-
-
-
-.mantine-Carousel-slide img {
-  width: 10%;
-  padding: 3rem;
-}
-
-.mantine-Carousel-control {
-  box-shadow: none;
+  margin: 3rem 2rem;
 }
 
 .controls {
@@ -57,20 +16,30 @@
 }
 
 .arrowIcon {
-  width: 2rem;
-  height: 2rem;
+  width: 3rem;
+  height: 3rem;
   background-color: black;
   border-radius: 50%;
   position: relative;
-  
 }
 
-@media (max-width: 800px) {
+.arrowIcon:hover {
+  background-color: #008cff;
+  cursor: pointer;
+}
 
-  
+/* --- Media Queries for tablet and mobile --- */
 
-  .mantineCarouselSlide {
-    height: 20px;
-    background-color: blue;
+@media (max-width: 768px) {
+  .root {
+    &:hover {
+      .controls {
+        opacity: 0;
+      }
+    }
+  }
+  .carouselContainer {
+    padding: 0 5px;
+    margin:  3rem 1rem;
   }
 }
