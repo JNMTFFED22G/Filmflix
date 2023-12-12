@@ -1,6 +1,6 @@
 import { cleanup } from '@testing-library/react';
-import "@testing-library/jest-dom/vitest";
-import { afterEach, vi } from "vitest";
+import '@testing-library/jest-dom/vitest';
+import { afterEach, vi } from 'vitest';
 
 // after each run it clears the dom
 afterEach(() => {
@@ -42,7 +42,7 @@ const sessionStorageMock = (function () {
 Object.defineProperty(window, 'sessionStorage', { value: sessionStorageMock });
 
 // Mock matchMedia
-Object.defineProperty(window, "matchMedia", {
+Object.defineProperty(window, 'matchMedia', {
   writable: true,
   value: vi.fn().mockImplementation(query => ({
     matches: false,

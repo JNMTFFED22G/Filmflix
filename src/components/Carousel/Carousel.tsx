@@ -19,14 +19,18 @@ function MovieCarousel({ movie, mode }: MovieCarouselProps) {
   const [shuffledMovies, setShuffledMovies] = useState<iMovie[]>([]);
 
   useEffect(() => {
-    const moviesToDisplay = mode === 'trend'
-      ? movie.filter(movie => movie.isTrending)
-      : movie.filter(movie => !movie.isTrending);
+    const moviesToDisplay =
+      mode === 'trend'
+        ? movie.filter(movie => movie.isTrending)
+        : movie.filter(movie => !movie.isTrending);
 
     // Shuffle the movies
     for (let i = moviesToDisplay.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
-      [moviesToDisplay[i], moviesToDisplay[j]] = [moviesToDisplay[j], moviesToDisplay[i]];
+      [moviesToDisplay[i], moviesToDisplay[j]] = [
+        moviesToDisplay[j],
+        moviesToDisplay[i],
+      ];
     }
 
     setShuffledMovies(moviesToDisplay);
@@ -38,7 +42,7 @@ function MovieCarousel({ movie, mode }: MovieCarouselProps) {
       <h1>{mode === 'rec' ? 'Recommended Movies' : 'Trending Movies'}</h1>
       <Carousel
         classNames={classes}
-        slideSize={{ base: '100%', sm: '15%', md: '20%', lg: '20%', xl: '20%'}}
+        slideSize={{ base: '100%', sm: '15%', md: '20%', lg: '20%', xl: '20%' }}
         align='start'
         slideGap='md'
         slidesToScroll={3}
@@ -60,11 +64,11 @@ function MovieCarousel({ movie, mode }: MovieCarouselProps) {
       >
         {/* Mapping through the movies and creating a Carousel.Slide for each */}
         {shuffledMovies.map((movie, index) => (
-        <Carousel.Slide key={index}>
-          <Thumbnail movie={movie} mode={mode} />
-        </Carousel.Slide>
-      ))}
-    </Carousel>
+          <Carousel.Slide key={index}>
+            <Thumbnail movie={movie} mode={mode} />
+          </Carousel.Slide>
+        ))}
+      </Carousel>
     </div>
   );
 }
