@@ -42,7 +42,7 @@ const Thumbnail: React.FC<ThumbnailProps> = ({ movie }) => {
   return (
     <>
       <div className={classes.outerDiv}>
-      <MovieTitle movie={movie} />
+        <MovieTitle movie={movie} />
         <Link to={movie.slug}>
           <img
             className={classes.image}
