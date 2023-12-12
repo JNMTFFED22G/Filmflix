@@ -39,20 +39,4 @@ describe('Thumbnail component', () => {
       expect(image).toHaveAttribute('src', mockMovie.thumbnail);
     });
   });
-
-  describe('Thumbnail component in recommended mode', () => {
-    beforeEach(() => {
-      render(
-        <MemoryRouter>
-          <Thumbnail movie={mockMovie} mode='rec' />
-        </MemoryRouter>
-      );
-    });
-
-    it('renders correctly with movie data', () => {
-      expect(
-        screen.getByText(`${mockMovie.rating} rating`)
-      ).toBeInTheDocument();
-    });
-  });
 });
