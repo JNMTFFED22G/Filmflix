@@ -6,7 +6,7 @@ export default function HomePage() {
     <div className='nav-padding'>
       <h1>HomePage</h1>
       {movies.map((movie, index) => (
-        <Thumbnail movie={movie} mode='rec' key={index} />
+        <Thumbnail movie={movie} key={index} />
       ))}
     </div>
   );
