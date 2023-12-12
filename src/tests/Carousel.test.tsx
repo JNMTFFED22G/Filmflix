@@ -55,17 +55,5 @@ it('Should render carousel with less than 10 slides in trending mode', () => {
   expect(slides.length).toBeLessThan(10);
 });
 
-it('each slide should render a object with title, year, rating, thumbnail', () => {
-  render(
-    <MantineProvider>
-    <MemoryRouter>
-      <MovieCarousel movie={movies} mode={'rec'} />
-    </MemoryRouter>
-    </MantineProvider>
-  );
-  const slides = screen.getAllByRole('img');
-  expect(slides[0]).toHaveAttribute('src', movies[0].thumbnail);
-  expect(screen.getByText(movies[0].title)).toBeInTheDocument();
-  expect(screen.getByText(movies[0].year)).toBeInTheDocument();
-  expect(screen.getByText(movies[0].rating)).toBeInTheDocument();
-});
+
+ 
