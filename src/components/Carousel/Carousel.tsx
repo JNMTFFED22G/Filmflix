@@ -33,12 +33,14 @@ function MovieCarousel({ movie, mode }: MovieCarouselProps) {
         loop
         nextControlIcon={
           <FontAwesomeIcon
+            aria-label='Next slide'
             icon={faArrowCircleRight}
             className={classes.arrowIcon}
           />
         }
         previousControlIcon={
           <FontAwesomeIcon
+            aria-label='Previous slide'
             icon={faArrowCircleLeft}
             className={classes.arrowIcon}
           />
