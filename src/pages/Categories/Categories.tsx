@@ -72,7 +72,6 @@ export default function Categories() {
   };
 
   const handleMovieClick = (movie: string) => {
-    console.log('movie clicked', movie);
     navigate(`/${movie}`);
   };
 
