@@ -7,6 +7,7 @@ import { Carousel } from '@mantine/carousel';
 import iMovie from '../../types/iMovie';
 import Thumbnail from '../Thumbnail/Thumbnail';
 import classes from './Carousel.module.css';
+import { useEffect, useState } from 'react';
 
 interface MovieCarouselProps {
   movie: iMovie[];
@@ -14,11 +15,22 @@ interface MovieCarouselProps {
 }
 
 function MovieCarousel({ movie, mode }: MovieCarouselProps) {
-  // Filtering movies based on the mode
-  const moviesToDisplay =
-    mode === 'trend'
+  // State for the shuffled movies
+  const [shuffledMovies, setShuffledMovies] = useState<iMovie[]>([]);
+
+  useEffect(() => {
+    const moviesToDisplay = mode === 'trend'
       ? movie.filter(movie => movie.isTrending)
       : movie.filter(movie => !movie.isTrending);
+
+    // Shuffle the movies
+    for (let i = moviesToDisplay.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [moviesToDisplay[i], moviesToDisplay[j]] = [moviesToDisplay[j], moviesToDisplay[i]];
+    }
+
+    setShuffledMovies(moviesToDisplay);
+  }, [movie, mode]);
 
   // Rendering the component
   return (
@@ -47,12 +59,12 @@ function MovieCarousel({ movie, mode }: MovieCarouselProps) {
         }
       >
         {/* Mapping through the movies and creating a Carousel.Slide for each */}
-        {moviesToDisplay.map((movie, index) => (
-          <Carousel.Slide key={index}>
-            <Thumbnail movie={movie} mode={mode} />
-          </Carousel.Slide>
-        ))}
-      </Carousel>
+        {shuffledMovies.map((movie, index) => (
+        <Carousel.Slide key={index}>
+          <Thumbnail movie={movie} mode={mode} />
+        </Carousel.Slide>
+      ))}
+    </Carousel>
     </div>
   );
 }
