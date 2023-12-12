@@ -118,7 +118,7 @@ export default function Categories() {
                   onClick={() => handleMovieClick(movie.slug)}
                   key={movie.id}
                 >
-                  <Thumbnail movie={movie} mode='rec' key={index} />
+                  <Thumbnail movie={movie} key={index} />
                 </div>
               ))}
             </div>

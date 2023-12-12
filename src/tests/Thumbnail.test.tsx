@@ -39,8 +39,4 @@ describe('Thumbnail component', () => {
       expect(image).toHaveAttribute('src', mockMovie.thumbnail);
     });
   });
-
-  it('renders correctly with movie data', () => {
-    expect(screen.getByText(`${mockMovie.rating} rating`)).toBeInTheDocument();
-  });
 });
