@@ -26,9 +26,9 @@ function MovieCarousel({ movie, mode }: MovieCarouselProps) {
       <h1>{mode === 'rec' ? 'Recommended Movies' : 'Trending Movies'}</h1>
       <Carousel
         classNames={classes}
-        slideSize={{ base: '100%', sm: '15%', md: '20%', lg: '15%', xl: '15%' }}
+        slideSize={{ base: '100%', sm: '15%', md: '20%', lg: '20%', xl: '20%'}}
         align='start'
-        slideGap='sm'
+        slideGap='md'
         slidesToScroll={3}
         loop
         nextControlIcon={
