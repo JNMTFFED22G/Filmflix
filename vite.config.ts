@@ -12,4 +12,7 @@ export default defineConfig({
     environment: 'jsdom',
     setupFiles: './src/tests/setup.ts',
   },
+  optimizeDeps: {
+    exclude: ['@mantine/hooks'],
+  },
 });
