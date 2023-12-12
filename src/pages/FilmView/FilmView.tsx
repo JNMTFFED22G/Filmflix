@@ -1,4 +1,5 @@
 import { useParams } from 'react-router-dom';
+import BookmarkButton from '../../components/BookmarkButton/BookMarkButton';
 import moviesJSON from '../../data/movies.json';
 import placeholder from '../../img/placeholder.jpg';
 import iMovie from '../../types/iMovie';
@@ -35,8 +36,8 @@ export default function FilmView() {
               <span className={styles.gapLeft}>{data.genre}</span>
             </p>
             <p className={styles.synopsis}>{data.synopsis}</p>
-            {/* TODO: Insert bookmark button here*/}
           </div>
+          <BookmarkButton movieId={data.id} size='large' />
         </div>
       </div>
     </div>

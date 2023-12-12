@@ -1,10 +1,8 @@
-import { faHeart as emptyHeart } from '@fortawesome/free-regular-svg-icons';
-import { faHeart as filledHeart } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import placeholder from '../../img/placeholder.jpg';
 import iMovie from '../../types/iMovie';
+import BookmarkButton from '../BookmarkButton/BookMarkButton';
 import classes from './Thumbnail.module.css';
 
 //TODO
@@ -30,20 +28,13 @@ const TrendingTitle: React.FC<{ movie: iMovie }> = ({ movie }) => {
 };
 
 const RecommendedTitle: React.FC<{ movie: iMovie }> = ({ movie }) => {
-  const [hover, setHover] = useState(false);
-
   return (
     <div className={classes.recTitleContainer}>
       <div className={classes.firstRow}>
         <Link className={classes.movieTitle} to={movie.slug}>
           {movie.title}
         </Link>
-        <FontAwesomeIcon
-          className={classes.icon}
-          icon={hover ? filledHeart : emptyHeart}
-          onMouseEnter={() => setHover(true)}
-          onMouseLeave={() => setHover(false)}
-        />
+        <BookmarkButton movieId={movie.id} size='small' />
       </div>
       <div className={classes.secondRow}>
         <div>{movie.year}</div>

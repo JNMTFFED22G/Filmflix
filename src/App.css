@@ -10,25 +10,19 @@
   color: white;
 }
 
+body {
+  background-color: rgb(34, 34, 34);
+}
+
 h2 {
   font-size: 60px;
   font-weight: 400;
   margin-bottom: 1rem;
 }
 
-/* After you guys have seen the page you can remove the picture,
-/* feel free to remove it or change it. 
-/* I needed to try how the navbar looked with a background image.
-/* I didn't knew if we were going to use this as landing page or not,
-/* so I just put it there for now.
-*/
-
-body {
-  /* background: url('../src/img/interstellar.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  height: 100vh; */
-  background-color: rgb(34, 34, 34);
+button {
+  background-color: transparent;
+  border: none;
 }
 
 @media (max-width: 475px) {
