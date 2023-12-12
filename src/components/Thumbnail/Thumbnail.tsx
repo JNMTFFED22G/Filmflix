@@ -32,6 +32,10 @@ const MovieTitle: React.FC<TitleProps> = ({ movie }) => {
   );
 };
 
+interface ThumbnailProps {
+  movie: iMovie;
+}
+
 const Thumbnail: React.FC<ThumbnailProps> = ({ movie }) => {
   const [imgSrc, setImgSrc] = useState(movie.thumbnail);
 
