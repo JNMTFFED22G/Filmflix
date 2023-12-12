@@ -20,11 +20,11 @@ describe('Thumbnail component', () => {
       'https://m.media-amazon.com/images/M/MV5BNDE3ODcxYzMtY2YzZC00NmNlLWJiNDMtZDViZWM2MzIxZDYwXkEyXkFqcGdeQXVyNjAwNDUxODI@._V1_QL75_UX380_CR0,4,380,562_.jpg',
   };
 
-  describe('Thumbnail component in trend mode', () => {
+  describe('Thumbnail component renders correctly', () => {
     beforeEach(() => {
       render(
         <MemoryRouter>
-          <Thumbnail movie={mockMovie} mode='trend' />
+          <Thumbnail movie={mockMovie} />
         </MemoryRouter>
       );
       image = screen.getByAltText(`${mockMovie.title} image`);
@@ -38,5 +38,9 @@ describe('Thumbnail component', () => {
       expect(image).toBeInTheDocument();
       expect(image).toHaveAttribute('src', mockMovie.thumbnail);
     });
+  });
+
+  it('renders correctly with movie data', () => {
+    expect(screen.getByText(`${mockMovie.rating} rating`)).toBeInTheDocument();
   });
 });
