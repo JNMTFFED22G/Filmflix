@@ -10,14 +10,26 @@ export default function BookMarks() {
     bookmarkedMovies.includes(movie.id)
   );
 
+  const mountedStyle = { animation: 'inAnimation 250ms ease-in' };
+
   return (
-    <div className='bookmark-container'>
+    <div style={mountedStyle} className='bookmark-container'>
       <h1>Bookmarks</h1>
-      <div className='bookmark-grid'>
-        {bookmarkedMoviesToRender.map((movie, index) => (
-          <Thumbnail movie={movie} mode='rec' key={index} />
-        ))}
-      </div>
+      {bookmarkedMovies.length === 0 ? (
+        <div>
+          <p>No bookmarked movies</p>
+        </div>
+      ) : (
+        <>
+          <div style={mountedStyle} className='bookmark-grid'>
+            {bookmarkedMoviesToRender.map((movie, index) => (
+              <div className='movie-item'>
+                <Thumbnail movie={movie} mode='rec' key={index} />
+              </div>
+            ))}
+          </div>
+        </>
+      )}
     </div>
   );
 }
