@@ -11,23 +11,11 @@ import classes from './Thumbnail.module.css';
 // Maybe add some hover effects?
 // More tests need to be written once implemented in the app
 
-interface ThumbnailProps {
+interface TitleProps {
   movie: iMovie;
-  mode: 'rec' | 'trend';
 }
 
-const TrendingTitle: React.FC<{ movie: iMovie }> = ({ movie }) => {
-  return (
-    <div className={classes.titleContainer}>
-      <Link className={classes.movieTitle} to={movie.slug}>
-        {movie.title} -
-      </Link>
-      <div>{movie.year}</div>
-    </div>
-  );
-};
-
-const RecommendedTitle: React.FC<{ movie: iMovie }> = ({ movie }) => {
+const MovieTitle: React.FC<TitleProps> = ({ movie }) => {
   return (
     <div className={classes.recTitleContainer}>
       <div className={classes.firstRow}>
@@ -44,7 +32,11 @@ const RecommendedTitle: React.FC<{ movie: iMovie }> = ({ movie }) => {
   );
 };
 
-const Thumbnail: React.FC<ThumbnailProps> = ({ movie, mode }) => {
+interface ThumbnailProps {
+  movie: iMovie;
+}
+
+const Thumbnail: React.FC<ThumbnailProps> = ({ movie }) => {
   const [imgSrc, setImgSrc] = useState(movie.thumbnail);
 
   const handleError = () => {
@@ -54,11 +46,7 @@ const Thumbnail: React.FC<ThumbnailProps> = ({ movie, mode }) => {
   return (
     <>
       <div className={classes.outerDiv}>
-        {mode === 'rec' ? (
-          <RecommendedTitle movie={movie} />
-        ) : (
-          <TrendingTitle movie={movie} />
-        )}
+        <MovieTitle movie={movie} />
         <Link to={movie.slug}>
           <img
             className={classes.image}

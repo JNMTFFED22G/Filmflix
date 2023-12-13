@@ -9,7 +9,7 @@ import FilmView from '../pages/FilmView/FilmView';
 describe('BookmarkButton', () => {
   it('should render in Thumbnails with mode "rec"', async () => {
     const movie = movies[0];
-    render(<Thumbnail movie={movie} mode='rec' />, { wrapper: MemoryRouter });
+    render(<Thumbnail movie={movie} />, { wrapper: MemoryRouter });
 
     expect(await screen.findByTestId('bookmark-button')).toBeInTheDocument();
   });
@@ -78,7 +78,7 @@ describe('BookmarkButton', () => {
 
     const user = userEvent.setup();
 
-    render(<Thumbnail movie={movie} mode='rec' />, { wrapper: MemoryRouter });
+    render(<Thumbnail movie={movie} />, { wrapper: MemoryRouter });
 
     // Double check that the movie is not in the bookmarks
     expect(
