@@ -42,7 +42,14 @@ function MovieCarousel({ movie, mode }: MovieCarouselProps) {
       <h1>{mode === 'rec' ? 'Recommended Movies' : 'Trending Movies'}</h1>
       <Carousel
         classNames={classes}
-        slideSize={{ base: '100%', sm: '15%', md: '20%', lg: '20%', xl: '20%' }}
+        slideSize={{
+          base: '100%',
+          xs: '10%',
+          sm: '10%',
+          md: '20%',
+          lg: '20%',
+          xl: '20%',
+        }}
         align='start'
         slideGap='md'
         slidesToScroll={3}
