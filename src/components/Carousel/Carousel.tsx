@@ -65,7 +65,7 @@ function MovieCarousel({ movie, mode }: MovieCarouselProps) {
         {/* Mapping through the movies and creating a Carousel.Slide for each */}
         {shuffledMovies.map((movie, index) => (
           <Carousel.Slide key={index}>
-            <Thumbnail movie={movie} mode={mode} />
+            <Thumbnail movie={movie} />
           </Carousel.Slide>
         ))}
       </Carousel>
