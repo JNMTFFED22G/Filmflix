@@ -112,5 +112,7 @@ describe('Integration tests', () => {
     ).toBeInTheDocument();
   });
 
-  it('should be possible to bookmark a film and find it in the bookmarked list', () => {});
+  it('should be possible to bookmark a film and find it in the bookmarked list', async () => {
+    // TODO: Write integration test for bookmarking functionality
+  });
 });
