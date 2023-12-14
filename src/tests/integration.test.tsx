@@ -8,10 +8,11 @@ import BookMarks from '../pages/BookMarks/BookMarks';
 import Categories from '../pages/Categories/Categories';
 import FilmView from '../pages/FilmView/FilmView';
 import HomePage from '../pages/HomePage/HomePage';
+import iMovie from '../types/iMovie';
 
 describe('Integration tests', () => {
   let user: ReturnType<typeof userEvent.setup>;
-  const movie = movies[0];
+  const movie: iMovie = movies[0];
 
   beforeEach(() => {
     render(
@@ -112,6 +113,47 @@ describe('Integration tests', () => {
   });
 
   it('should be possible to bookmark a film and find it in the bookmarked list', async () => {
-    // TODO: Write integration test for bookmarking functionality
+    // Assert boomark button exists within the first thumbnail
+    const thumbs = await screen.findAllByTestId('thumb-title');
+    const button = within(thumbs[0]).getByTestId('bookmark-button');
+    expect(button).toBeInTheDocument();
+
+    const title = within(thumbs[0]).getByTestId('thumb-title-text').textContent;
+    if (!title) throw new Error('Film title not found');
+    const movie: iMovie | undefined = movies.find(
+      movie => movie.title === title
+    );
+    if (!movie) throw new Error('Movie not found');
+
+    // Click on bookmark button
+    await user.click(button);
+
+    // Assert the film id is in session storage
+    const bookmarks = JSON.parse(sessionStorage.getItem('bookmarks') || '[]');
+    expect(bookmarks).toContain(movie.id);
+
+    // Navigate to bookmarks
+    await user.click(await screen.findByRole('link', { name: /bookmarks/i }));
+
+    // Assert the film is in the bookmarks list
+    expect(await screen.findByText(movie.title)).toBeInTheDocument();
+
+    // Click on the film
+    await user.click(await screen.findByText(movie.title));
+
+    // Assert film information is in the document
+    expect(await screen.findByText(movie.title)).toBeInTheDocument();
+    expect(await screen.findByText(movie.year)).toBeInTheDocument();
+    expect(await screen.findByText(movie.genre)).toBeInTheDocument();
+    expect(await screen.findByText(movie.synopsis)).toBeInTheDocument();
+
+    // Click on the bookmark button
+    await user.click(await screen.findByTestId('bookmark-button'));
+
+    // Assert the film id is not in session storage
+    const updatedBookmarks = JSON.parse(
+      sessionStorage.getItem('bookmarks') || '[]'
+    );
+    expect(updatedBookmarks).not.toContain(movie.id);
   });
 });
