@@ -1,7 +1,7 @@
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Thumbnail from '../../components/Thumbnail/Thumbnail';
 import movies from '../../data/movies.json';
 import './Categories.css';
@@ -31,6 +31,7 @@ export default function Categories() {
   const [selectedCategory, setSelectedCategory] = useState<string>('');
   const [isActive, setIsActive] = useState(false);
   const [filteredMovies, setFilteredMovies] = useState<iMovie[]>([]);
+  const navigate = useNavigate();
 
   const mountedStyle = { animation: 'inAnimation 250ms ease-in' };
   const unmountedStyle = {
@@ -72,6 +73,7 @@ export default function Categories() {
   /* Toggle active state */
   const activeToggle = () => {
     setIsActive(!isActive);
+    navigate('/categories');
   };
 
   /* Retrieve the unique categories */
@@ -108,7 +110,10 @@ export default function Categories() {
       ) : (
         <div className={'categories-wrapper'}>
           {categories.map(category => (
-            <Link to={`/categories/${category}`}>
+            <Link
+              style={{ textDecoration: 'none' }}
+              to={`/categories/${category}`}
+            >
               <div
                 style={isActive ? unmountedStyle : mountedStyle}
                 className={`category-item ${
