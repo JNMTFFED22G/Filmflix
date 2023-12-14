@@ -4,10 +4,10 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Carousel } from '@mantine/carousel';
+import { useEffect, useState } from 'react';
 import iMovie from '../../types/iMovie';
 import Thumbnail from '../Thumbnail/Thumbnail';
 import classes from './Carousel.module.css';
-import { useEffect, useState } from 'react';
 
 interface MovieCarouselProps {
   movie: iMovie[];
@@ -38,7 +38,7 @@ function MovieCarousel({ movie, mode }: MovieCarouselProps) {
 
   // Rendering the component
   return (
-    <div className={classes.carouselContainer}>
+    <div>
       <h1>{mode === 'rec' ? 'Recommended Movies' : 'Trending Movies'}</h1>
       <Carousel
         classNames={classes}

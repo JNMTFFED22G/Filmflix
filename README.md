@@ -1,32 +1,43 @@
-# React + TypeScript + Vite
+# NetFlix
 
-test
+Detta är en netflix kopia där huvudsakliga uppgiften var att skapa en resonsiv funktionell sida med fungerande tester som är relevanta. 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Teknikstack
 
-Currently, two official plugins are available:
+Projektet är en frontendapplikation med inkluderade tester byggd med följande teknologier:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Frontend:** React, Typescript, Mantine, FontAwesome
+- **Testning:** Vitest,, jsdom, Jest
 
-## Expanding the ESLint configuration
+## Kom Igång
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+För att komma igång med projektet, följ dessa steg 1-3:
 
-- Configure the top-level `parserOptions` property like this:
+1. Klona ner repositoryt till din lokala maskin.
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-};
-```
+2. Öppna terminalen & kör
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- npm install
+
+3. Starta projektet:
+
+- npm run dev
+
+4. (valfirtt) Köra testerna:
+   
+- npm run test
+
+<br>
+<b> Länk till projektet </b>
+
+[NetFlix](https://filmfliix.netlify.app/)
+   
+
+
+<b>Utvecklare för projektet:</b>
+
+Nathanael Blackbourn [GitHub](https://github.com/NathanaelBlackbourn)<br>
+Thomas Ingvarsson [GitHub](https://github.com/GunnarIng) <br>
+Jenny Pettersson [GitHub](https://github.com/jesnagbg)<br>
+Mergim Shala [GitHub](https://github.com/mergimshalaa)<br>
+Felicia Willnäs [GitHub](https://github.com/feliciawillnas)
