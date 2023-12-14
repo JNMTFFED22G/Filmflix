@@ -1,6 +1,7 @@
 .carouselContainer {
-  padding: 0 16px;
-  margin: 3rem 2rem;
+  //padding: 0 16px;
+  //margin: 3rem 2rem;
+  margin: 0 12vw;
 }
 
 .controls {
@@ -30,7 +31,13 @@
 
 /* --- Media Queries for tablet and mobile --- */
 
-@media (max-width: 768px) {
+@media (max-width: 810px) {
+  .carouselContainer {
+    margin: 0 5vw;
+  }
+}
+
+@media (max-width: 630px) {
   .root {
     &:hover {
       .controls {
@@ -39,7 +46,6 @@
     }
   }
   .carouselContainer {
-    padding: 0 5px;
-    margin: 3rem 1rem;
+    margin: 0 10vw;
   }
 }
