@@ -12,6 +12,12 @@
 .image {
   max-width: 220px;
   height: auto;
+
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    transform: scale(1.03);
+  }
 }
 
 .movieTitle {
