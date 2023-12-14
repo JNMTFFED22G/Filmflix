@@ -1,3 +1,4 @@
+import { MantineProvider } from '@mantine/core';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import {
@@ -5,6 +6,7 @@ import {
   RouterProvider,
   createMemoryRouter,
 } from 'react-router-dom';
+import { act } from 'react-dom/test-utils';
 import { describe, it } from 'vitest';
 import routes from '../routes';
 
@@ -15,17 +17,21 @@ describe('Route testing', () => {
     const router = createMemoryRouter(routes);
 
     navigate = router.navigate;
-    render(<RouterProvider router={router} />);
+    render(
+      <MantineProvider>
+        <RouterProvider router={router} />
+      </MantineProvider>
+    );
   });
 
-  // Fix this test with mantineProvider - new branch
+  it('loads home page on root route', async () => {
+    await act(async () => navigate('/'));
 
-  // it('loads home page on root route', async () => {
-  //   expect(await screen.findByText('HomePage')).toBeInTheDocument();
-  // });
-
+    expect(screen.getByText('Trending Movies')).toBeInTheDocument();
+    expect(screen.getByText('Recommended Movies')).toBeInTheDocument();
+  });
   it('loads categories on categories route', async () => {
-    navigate('/categories');
+    await act(async () => navigate('/categories'));
 
     expect(await screen.findByText('Categories')).toBeInTheDocument();
   });
