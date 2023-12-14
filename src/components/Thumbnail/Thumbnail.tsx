@@ -31,7 +31,7 @@ const RecommendedTitle: React.FC<{ movie: iMovie }> = ({ movie }) => {
   return (
     <div className={classes.recTitleContainer}>
       <div className={classes.firstRow}>
-        <Link className={classes.movieTitle} to={movie.slug}>
+        <Link className={classes.movieTitle} to={`/${movie.slug}`}>
           {movie.title}
         </Link>
         <BookmarkButton movieId={movie.id} size='small' />
@@ -59,7 +59,7 @@ const Thumbnail: React.FC<ThumbnailProps> = ({ movie, mode }) => {
         ) : (
           <TrendingTitle movie={movie} />
         )}
-        <Link to={movie.slug}>
+        <Link to={`/${movie.slug}`}>
           <img
             className={classes.image}
             src={movie.thumbnail ? imgSrc : placeholder}

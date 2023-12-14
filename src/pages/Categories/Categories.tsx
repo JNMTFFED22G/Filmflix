@@ -1,7 +1,7 @@
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Thumbnail from '../../components/Thumbnail/Thumbnail';
 import movies from '../../data/movies.json';
 import './Categories.css';
@@ -27,7 +27,6 @@ import westernIcon from '../../assets/icons/western.png';
 import iMovie from '../../types/iMovie';
 
 export default function Categories() {
-  const navigate = useNavigate();
   const [categories, setCategories] = useState<string[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string>('');
   const [isActive, setIsActive] = useState(false);
@@ -63,7 +62,6 @@ export default function Categories() {
   const handleCategoryClick = (category: string) => {
     setSelectedCategory(category);
     activeToggle();
-    navigate(`/categories/${category}`);
 
     const moviesForCategory = movies.filter(movie =>
       movie.genre.split(', ').includes(category)
@@ -71,16 +69,9 @@ export default function Categories() {
     setFilteredMovies(moviesForCategory);
   };
 
-  const handleMovieClick = (movie: string) => {
-    navigate(`/${movie}`);
-  };
-
   /* Toggle active state */
   const activeToggle = () => {
     setIsActive(!isActive);
-    if (isActive) {
-      navigate('/categories');
-    }
   };
 
   /* Retrieve the unique categories */
@@ -96,37 +87,28 @@ export default function Categories() {
   return (
     <div className='center-container'>
       {isActive ? (
-        <>
-          <div style={isActive ? mountedStyle : unmountedStyle}>
-            <div className='category-grid'>
-              <div className='go-back-button-wrapper'>
-                <button
-                  onClick={() => activeToggle()}
-                  className='go-back-button'
-                >
-                  <FontAwesomeIcon className='arrow-icon' icon={faArrowLeft} />
-                  Go back
-                </button>
-                <h1>{selectedCategory}</h1>
-              </div>
-            </div>
-            <div className='category-grid'>
-              {filteredMovies.map((movie, index) => (
-                <div
-                  aria-label='movie-item'
-                  onClick={() => handleMovieClick(movie.slug)}
-                  key={movie.id}
-                >
-                  <Thumbnail movie={movie} mode='rec' key={index} />
-                </div>
-              ))}
+        <div style={isActive ? mountedStyle : unmountedStyle}>
+          <div className='category-grid'>
+            <div className='go-back-button-wrapper'>
+              <button onClick={() => activeToggle()} className='go-back-button'>
+                <FontAwesomeIcon className='arrow-icon' icon={faArrowLeft} />
+                Go back
+              </button>
+              <h1>{selectedCategory}</h1>
             </div>
           </div>
-        </>
+          <div className='category-grid'>
+            {filteredMovies.map((movie, index) => (
+              <div aria-label='movie-item' key={movie.id}>
+                <Thumbnail movie={movie} mode='rec' key={index} />
+              </div>
+            ))}
+          </div>
+        </div>
       ) : (
-        <>
-          <div className={'categories-wrapper'}>
-            {categories.map(category => (
+        <div className={'categories-wrapper'}>
+          {categories.map(category => (
+            <Link to={`/categories/${category}`}>
               <div
                 style={isActive ? unmountedStyle : mountedStyle}
                 className={`category-item ${
@@ -143,9 +125,9 @@ export default function Categories() {
                 />
                 <p className='category-title'>{category}</p>
               </div>
-            ))}
-          </div>
-        </>
+            </Link>
+          ))}
+        </div>
       )}
     </div>
   );

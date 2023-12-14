@@ -35,14 +35,14 @@
 
 /* MEDIA QUERIES */
 /* Tablet */
-@media (max-width: 1250px) {
+@media (max-width: 1430px) {
   .bookmark-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 /* Mobile */
-@media (max-width: 760px) {
+@media (max-width: 1050px) {
   .bookmark-grid {
     grid-template-columns: repeat(1, 1fr);
   }
