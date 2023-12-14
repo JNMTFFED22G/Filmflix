@@ -7,7 +7,7 @@
 }
 
 .textContainer {
-  padding: 15rem;
+  padding: 10rem;
 }
 
 .titleRow {
@@ -24,16 +24,16 @@
 }
 
 .infoText {
-  max-width: 25vw;
+  max-width: 40vw;
   font-size: 20px;
 }
 
 .button {
   border: 1px solid white;
   border-radius: 20px;
-  padding: 0.6rem 4rem;
+  padding: 0.5rem 5rem;
   font-size: 20px;
-  margin-top: 5rem;
+  margin-top: 4rem;
 
   &:hover {
     background-color: white;

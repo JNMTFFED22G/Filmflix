@@ -6,9 +6,7 @@ export default function HomePage() {
   return (
     <>
       <HeroSection />
-      <div className='nav-padding'>
-        <h1>HomePage</h1>
-
+      <div>
         <MovieCaruosel movie={movies} mode='trend' />
         <MovieCaruosel movie={movies} mode='rec' />
       </div>
