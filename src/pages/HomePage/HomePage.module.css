@@ -1,0 +1,14 @@
+.mainContainer {
+  padding-bottom: 20px;
+
+  margin: 0 12vw;
+
+  @media (max-width: 810px) {
+    margin: 0 5vw;
+  }
+
+  @media (max-width: 630px) {
+    max-width: 380px;
+    margin: 0 10vw;
+  }
+}

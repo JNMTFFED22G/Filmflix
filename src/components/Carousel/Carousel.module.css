@@ -1,8 +1,3 @@
-.carouselContainer {
-  padding: 0 16px;
-  margin: 3rem 2rem;
-}
-
 .controls {
   transition: opacity 150ms ease;
   opacity: 0;
@@ -30,16 +25,12 @@
 
 /* --- Media Queries for tablet and mobile --- */
 
-@media (max-width: 768px) {
+@media (max-width: 630px) {
   .root {
     &:hover {
       .controls {
         opacity: 0;
       }
     }
-  }
-  .carouselContainer {
-    padding: 0 5px;
-    margin: 3rem 1rem;
   }
 }
