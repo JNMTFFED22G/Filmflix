@@ -1,5 +1,5 @@
+import MovieCaruosel from '../../components/Carousel/Carousel';
 import HeroSection from '../../components/HeroSection/HeroSection';
-import Thumbnail from '../../components/Thumbnail/Thumbnail';
 import movies from '../../data/movies.json';
 
 export default function HomePage() {
@@ -8,9 +8,9 @@ export default function HomePage() {
       <HeroSection />
       <div className='nav-padding'>
         <h1>HomePage</h1>
-        {movies.map((movie, index) => (
-          <Thumbnail movie={movie} mode='rec' key={index} />
-        ))}
+
+        <MovieCaruosel movie={movies} mode='trend' />
+        <MovieCaruosel movie={movies} mode='rec' />
       </div>
     </>
   );
