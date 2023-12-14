@@ -23,7 +23,7 @@ export default function BookMarks() {
               <div style={mountedStyle} className='bookmark-grid'>
                 {bookmarkedMoviesToRender.map((movie, index) => (
                   <div key={movie.id}>
-                    <Thumbnail movie={movie} mode='rec' key={index} />
+                    <Thumbnail movie={movie} key={index} />
                   </div>
                 ))}
               </div>

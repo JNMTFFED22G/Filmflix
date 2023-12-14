@@ -102,7 +102,7 @@ export default function Categories() {
           <div className='category-grid'>
             {filteredMovies.map((movie, index) => (
               <div aria-label='movie-item' key={movie.id}>
-                <Thumbnail movie={movie} mode='rec' key={index} />
+                <Thumbnail movie={movie} key={index} />
               </div>
             ))}
           </div>
