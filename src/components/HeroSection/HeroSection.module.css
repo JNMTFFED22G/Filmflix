@@ -6,6 +6,10 @@
   height: 80vh;
   display: flex;
   align-items: center;
+
+  @media (max-width: 630px) {
+    height: 70vh;
+  }
 }
 
 .textContainer {
@@ -18,18 +22,14 @@
 
   @media (max-width: 630px) {
     max-width: 380px;
+    margin: 0 10vw;
   }
 }
 
 .titleRow {
   display: flex;
   flex-direction: row;
-  padding-bottom: 1rem;
   align-items: baseline;
-
-  @media (max-width: 630px) {
-    padding-bottom: 0.5rem;
-  }
 }
 
 .title {
@@ -51,7 +51,7 @@
   border-radius: 30px;
   padding: 10px 100px;
   font-size: 20px;
-  margin-top: 4rem;
+  margin-top: 80px;
 
   &:hover {
     background-color: white;
@@ -60,6 +60,7 @@
   }
 
   @media (max-width: 630px) {
-    margin-top: 2rem;
+    margin-top: 40px;
+    padding: 10px 70px;
   }
 }
