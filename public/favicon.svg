@@ -1,0 +1,26 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  aria-hidden="true"
+  role="img"
+  class="iconify iconify--logos"
+  width="31.88"
+  height="32"
+  preserveAspectRatio="xMidYMid meet"
+  viewBox="0 0 100 100"
+>
+    <style>
+        .text {
+            fill: #000;
+            font-family: "Anonymous Pro", monospace;
+            font-size: 100px;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .text {
+                fill: #fff;
+            }
+        }
+    </style>
+    <text x="0" y="90" class="text">F</text>
+</svg>
