@@ -1,11 +1,15 @@
+import { MantineProvider } from '@mantine/core';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import {
   NavigateFunction,
   RouterProvider,
   createMemoryRouter,
+  Route,
 } from 'react-router-dom';
+import { BrowserRouter as Router, Routes } from 'react-router-dom';
 import { describe, it } from 'vitest';
+import HomePage from '../pages/HomePage/HomePage';
 import routes from '../routes';
 
 describe('Route testing', () => {
@@ -18,11 +22,21 @@ describe('Route testing', () => {
     render(<RouterProvider router={router} />);
   });
 
-  // Fix this test with mantineProvider - new branch
+  it('loads home page on root route', () => {
+    render(
+      <MantineProvider>
+        <Router>
+          <Routes>
+            <Route path='/' element={<HomePage />} />
+          </Routes>
+        </Router>
+      </MantineProvider>
+    );
 
-  // it('loads home page on root route', async () => {
-  //   expect(await screen.findByText('HomePage')).toBeInTheDocument();
-  // });
+    expect(screen.getByText('HomePage')).toBeInTheDocument();
+    expect(screen.getByText('Trending Movies')).toBeInTheDocument();
+    expect(screen.getByText('Recommended Movies')).toBeInTheDocument();
+  });
 
   it('loads categories on categories route', async () => {
     navigate('/categories');
