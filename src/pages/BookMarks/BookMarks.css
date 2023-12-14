@@ -1,0 +1,49 @@
+.bookmarks-container {
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+  color: white;
+  padding: 0 10rem 0 10rem;
+}
+
+.bookmark-title {
+  margin: 4.5rem 0 2rem 0;
+}
+
+.bookmark-title,
+.bookmark-span {
+  padding-left: 1rem;
+}
+
+.bookmark-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 1rem;
+}
+
+/* ANIMATIONS */
+@keyframes inAnimation {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+/* MEDIA QUERIES */
+/* Tablet */
+@media (max-width: 1430px) {
+  .bookmark-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile */
+@media (max-width: 1050px) {
+  .bookmark-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

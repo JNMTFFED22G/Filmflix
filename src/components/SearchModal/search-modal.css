@@ -84,7 +84,7 @@
 @media (max-width: 810px) {
   .search-modal {
     width: 90%;
-    padding: 1rem;
+    padding: 3rem;
   }
 
   @media (max-width: 510px) {
