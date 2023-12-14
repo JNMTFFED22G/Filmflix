@@ -1,0 +1,42 @@
+.outerContainer {
+  background-image: url('../../img/headerimg.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 80vh;
+}
+
+.textContainer {
+  padding: 15rem;
+}
+
+.titleRow {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 2rem;
+  align-items: baseline;
+}
+
+.title {
+  font-size: 70px;
+  font-weight: 200;
+  margin-right: 1rem;
+}
+
+.infoText {
+  max-width: 25vw;
+  font-size: 20px;
+}
+
+.button {
+  border: 1px solid white;
+  border-radius: 20px;
+  padding: 0.6rem 4rem;
+  font-size: 20px;
+  margin-top: 5rem;
+
+  &:hover {
+    background-color: white;
+    color: black;
+  }
+}
