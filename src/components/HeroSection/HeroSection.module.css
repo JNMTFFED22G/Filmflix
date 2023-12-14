@@ -16,7 +16,7 @@
 }
 
 .textContainer {
-  margin: 0 15vw;
+  margin: 0 12vw;
   max-width: 600px;
 
   @media (max-width: 810px) {
