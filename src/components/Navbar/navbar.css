@@ -1,5 +1,4 @@
 .navbar {
-  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -8,7 +7,8 @@
   display: flex;
   justify-content: space-between;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(3px);
+  z-index: 10;
+  position: relative;
 }
 
 ul {
