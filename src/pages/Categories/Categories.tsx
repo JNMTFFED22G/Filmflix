@@ -111,7 +111,6 @@ export default function Categories() {
         <div className={'categories-wrapper'}>
           {categories.map((category, i) => (
             <Link
-              key={category}
               style={{ textDecoration: 'none' }}
               to={`/categories/${category}`}
               key={i}
