@@ -14,7 +14,6 @@ describe('Integration tests', () => {
   const movie = movies[0];
 
   beforeEach(() => {
-    // render(<RouterProvider router={createMemoryRouter(routes)} />);
     render(
       <MantineProvider>
         <MemoryRouter>
