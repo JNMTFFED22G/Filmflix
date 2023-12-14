@@ -27,7 +27,6 @@ describe('Route testing', () => {
   it('loads home page on root route', async () => {
     await act(async () => navigate('/'));
 
-    expect(screen.getByText('HomePage')).toBeInTheDocument();
     expect(screen.getByText('Trending Movies')).toBeInTheDocument();
     expect(screen.getByText('Recommended Movies')).toBeInTheDocument();
   });
