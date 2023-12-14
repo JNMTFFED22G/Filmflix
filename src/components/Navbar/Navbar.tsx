@@ -21,7 +21,7 @@ export default function Navbar() {
       </h1>
       <ul>
         <li>
-          <span onClick={toggleSearchModal}>
+          <span onClick={toggleSearchModal} data-testid='search-button'>
             <FontAwesomeIcon icon={faSearch} />
           </span>
         </li>

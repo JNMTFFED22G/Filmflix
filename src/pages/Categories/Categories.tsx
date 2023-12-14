@@ -109,10 +109,11 @@ export default function Categories() {
         </div>
       ) : (
         <div className={'categories-wrapper'}>
-          {categories.map(category => (
+          {categories.map((category, i) => (
             <Link
               style={{ textDecoration: 'none' }}
               to={`/categories/${category}`}
+              key={i}
             >
               <div
                 style={isActive ? unmountedStyle : mountedStyle}

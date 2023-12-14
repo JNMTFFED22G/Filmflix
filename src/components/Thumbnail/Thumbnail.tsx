@@ -17,9 +17,13 @@ interface TitleProps {
 
 const MovieTitle: React.FC<TitleProps> = ({ movie }) => {
   return (
-    <div className={classes.recTitleContainer}>
+    <div className={classes.recTitleContainer} data-testid='thumb-title'>
       <div className={classes.firstRow}>
-        <Link className={classes.movieTitle} to={`/${movie.slug}`}>
+        <Link
+          className={classes.movieTitle}
+          to={`/${movie.slug}`}
+          data-testid='thumb-title-text'
+        >
           {movie.title}
         </Link>
         <BookmarkButton movieId={movie.id} size='small' />
