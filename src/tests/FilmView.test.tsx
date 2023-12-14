@@ -8,6 +8,7 @@ import {
 import movies from '../data/movies.json';
 import placeholder from '../img/placeholder.jpg';
 import routes from '../routes';
+import { MantineProvider } from '@mantine/core';
 
 describe('FimView', () => {
   let navigate: NavigateFunction;
@@ -17,7 +18,11 @@ describe('FimView', () => {
     const router = createMemoryRouter(routes);
 
     navigate = router.navigate;
-    render(<RouterProvider router={router} />);
+    render(
+      <MantineProvider>
+        <RouterProvider router={router} />
+      </MantineProvider>
+    );
 
     await act(async () => navigate(`/${movie.slug}`));
   });
