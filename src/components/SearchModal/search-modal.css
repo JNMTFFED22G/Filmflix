@@ -9,6 +9,7 @@
   opacity: 0;
   animation: fadeIn 0.3s ease-in-out forwards;
   background-color: rgba(0, 0, 0, 0.9);
+  z-index: 1000;
 }
 
 .search-modal {
