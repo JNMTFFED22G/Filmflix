@@ -58,7 +58,7 @@
 
 .category-icon {
   height: 48px;
-  margin-bottom: 1rem;
+  margin: 1rem;
 }
 
 .category-title {
@@ -103,6 +103,10 @@
     grid-template-columns: repeat(2, 1fr);
     padding: 1rem;
   }
+
+  .center-container {
+    min-height: 30vh;
+  }
 }
 
 /* Mobile */
@@ -116,7 +120,7 @@
   }
 
   .category-grid {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .category-grid h1 {
@@ -139,9 +143,8 @@
   }
 
   .category-grid {
-    grid-template-columns: repeat(1, 1fr);
-    padding: 0rem;
-    overflow: hidden;
+    padding: 0.3rem;
+
     margin-top: 2rem;
   }
 }
