@@ -46,7 +46,6 @@
 .search-modal input {
   width: 100%;
   display: flex;
-  padding: 12px;
   padding-left: 1.9rem;
   border: none;
   border-bottom: 1px solid #ccc;
