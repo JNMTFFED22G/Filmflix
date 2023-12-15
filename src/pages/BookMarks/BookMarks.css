@@ -5,22 +5,19 @@
   color: white;
   padding: 0 10rem 0 10rem;
   min-height: 60vh;
+  align-items: center;
 }
 
 .bookmark-title {
-  margin: 4.5rem 0 2rem 0;
-}
-
-.bookmark-title,
-.bookmark-span {
-  padding-left: 1rem;
+  margin: 3.5rem 0 2rem 0;
 }
 
 .bookmark-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   padding: 1rem;
-  grid-gap: 1rem;
+  grid-gap: 2rem;
+  margin-bottom: 3rem;
 }
 
 /* ANIMATIONS */

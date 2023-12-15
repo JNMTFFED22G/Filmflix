@@ -4,7 +4,8 @@
   align-items: center;
   font-size: 20px;
   color: white;
-  min-height: 60vh;
+  min-height: 91vh;
+  margin-bottom: 3rem;
 }
 
 /* SELECTED MOVIE GENRE */
@@ -13,10 +14,6 @@
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 2rem;
   padding: 1rem;
-}
-
-.go-back-button-wrapper {
-  /* padding: 0 1rem; */
 }
 
 .go-back-button {
@@ -120,6 +117,10 @@
 
   .category-grid {
     grid-template-columns: repeat(1, 1fr);
+  }
+
+  .category-grid h1 {
+    font-size: 30px;
   }
 }
 
