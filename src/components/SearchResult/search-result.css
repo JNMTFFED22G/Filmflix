@@ -59,7 +59,14 @@
   opacity: 1;
 }
 
-/*===== Media Query tablet ---> phone ====*/
+/*===== Media Query tablet ---> tablet ---> phone ====*/
+
+@media (max-width: 849px) {
+  .search-results {
+    justify-content: center;
+  }
+}
+
 @media (max-width: 500px) {
   .search-results {
     justify-content: center;

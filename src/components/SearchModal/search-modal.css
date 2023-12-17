@@ -46,7 +46,6 @@
 .search-modal input {
   width: 100%;
   display: flex;
-  padding: 12px;
   padding-left: 1.9rem;
   border: none;
   border-bottom: 1px solid #ccc;
@@ -83,11 +82,10 @@
 /*========== Media Queries tablet/mobile ==========*/
 @media (max-width: 810px) {
   .search-modal {
-    width: 90%;
-    padding: 3rem;
+    padding: 1rem;
   }
 
-  @media (max-width: 510px) {
+  @media (max-width: 575px) {
     .search-modal input::placeholder {
       font-size: 0;
     }
